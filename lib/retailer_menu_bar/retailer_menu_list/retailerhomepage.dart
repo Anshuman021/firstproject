@@ -15,7 +15,7 @@ class RetailerHomePage extends StatelessWidget {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'vegetables');
+                    Navigator.pushNamed(context, 'vegetables_list');
                   },
                   child: Container(
                     child: const Align(

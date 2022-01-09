@@ -10,7 +10,7 @@ import 'package:firstproject/user_verification/verification.dart';
 import 'package:firstproject/retailer_login_signup/retailersignup.dart';
 import 'package:firstproject/retailer_login_signup/retailerlogin.dart';
 import 'package:firstproject/retailer_menu_bar/retailerdrawer.dart';
-import 'package:firstproject/retailer_items/vegetables.dart';
+import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetables_list.dart';
 import 'package:firstproject/retailer_items/grains.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerhomepage.dart';
 import 'package:firstproject/retailer_profile/utils/user_preferences.dart';
@@ -27,10 +27,11 @@ Future main() async {
 
   await UserPreferences.init();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   //static final String title = 'User Profile';
 
   @override
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           //theme: ThemeProvider.of(context),
           //title: title,
-          home: const VerifyingUser(),
+          home: const VegList(),
 
           routes: {
             'verification': (context) => const VerifyingUser(),
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
             'retailersignup': (context) => const RetailerSignUp(),
             'home': (context) => const Home(),
             'retailerdrawer': (context) => const RetailerDrawer(),
-            'vegetables': (context) => const Vegetables(),
+            'vegetables_list': (context) => const VegList(),
             'grains': (context) => const Grains(),
             'flowers': (context) => const Flowers(),
             'fruits': (context) => const Fruits(),
