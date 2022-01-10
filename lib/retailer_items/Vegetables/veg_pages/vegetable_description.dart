@@ -225,7 +225,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 25,
           ),
           InkWell(
             onTap: () {
