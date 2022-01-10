@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firstproject/retailer_profile/model/user.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/user.dart';
 
 class UserPreferences {
   static late SharedPreferences _preferences;

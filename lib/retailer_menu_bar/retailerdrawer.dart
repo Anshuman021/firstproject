@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firstproject/retailer_menu_bar/my_drawer_header_retailer.dart';
-import 'package:firstproject/retailer_profile/page/profile_page.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/profile_page.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerhelp.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerlogout.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailercart.dart';

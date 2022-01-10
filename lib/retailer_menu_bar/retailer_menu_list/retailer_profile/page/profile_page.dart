@@ -1,12 +1,12 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_profile/model/user.dart';
-import 'package:firstproject/retailer_profile/page/edit_profile_page.dart';
-import 'package:firstproject/retailer_profile/utils/user_preferences.dart';
-import 'package:firstproject/retailer_profile/widget/appbar_widget.dart';
-import 'package:firstproject/retailer_profile/widget/button_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/user.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/edit_profile_page.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/appbar_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/button_widget.dart';
 // import 'package:firstproject/retailer_profile/widget/numbers_widget.dart';
-import 'package:firstproject/retailer_profile/widget/profile_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/profile_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   @override

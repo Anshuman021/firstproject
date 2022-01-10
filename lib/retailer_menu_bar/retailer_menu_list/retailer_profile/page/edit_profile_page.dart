@@ -4,12 +4,12 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:firstproject/retailer_profile/model/user.dart';
-import 'package:firstproject/retailer_profile/utils/user_preferences.dart';
-import 'package:firstproject/retailer_profile/widget/appbar_widget.dart';
-import 'package:firstproject/retailer_profile/widget/button_widget.dart';
-import 'package:firstproject/retailer_profile/widget/profile_widget.dart';
-import 'package:firstproject/retailer_profile/widget/textfield_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/user.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/appbar_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/button_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/profile_widget.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/textfield_widget.dart';
 import 'package:path/path.dart';
 
 class EditProfilePage extends StatefulWidget {

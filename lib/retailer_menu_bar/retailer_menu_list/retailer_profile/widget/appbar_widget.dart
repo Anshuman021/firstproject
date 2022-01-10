@@ -1,8 +1,8 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_profile/themes.dart';
-import 'package:firstproject/retailer_profile/utils/user_preferences.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/themes.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
 
 AppBar buildAppBar(BuildContext context) {
   final user = UserPreferences.getUser();

@@ -13,9 +13,12 @@ import 'package:firstproject/retailer_menu_bar/retailerdrawer.dart';
 import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetables_list.dart';
 import 'package:firstproject/retailer_items/grains.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerhomepage.dart';
-import 'package:firstproject/retailer_profile/utils/user_preferences.dart';
+
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
+
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
-import 'package:firstproject/retailer_profile/themes.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/themes.dart';
+
 import 'package:flutter/services.dart';
 
 Future main() async {
