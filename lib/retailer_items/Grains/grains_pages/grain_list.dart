@@ -5,13 +5,13 @@ import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart
 
 import 'package:line_icons/line_icons.dart';
 
-class VegList extends StatefulWidget {
-  const VegList({Key? key}) : super(key: key);
+class GrainList extends StatefulWidget {
+  const GrainList({Key? key}) : super(key: key);
   @override
-  _VegListState createState() => _VegListState();
+  _GrainListState createState() => _GrainListState();
 }
 
-class _VegListState extends State<VegList> {
+class _GrainListState extends State<GrainList> {
   int activeIndex = 0;
   @override
   Widget build(BuildContext context) {

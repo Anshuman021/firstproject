@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class MyDrawer extends StatefulWidget {
-  const MyDrawer({Key? key}) : super(key: key);
+class RetailerDrawerHeader extends StatefulWidget {
+  const RetailerDrawerHeader({Key? key}) : super(key: key);
 
   @override
-  _MyDrawerState createState() => _MyDrawerState();
+  _RetailerDrawerHeaderState createState() => _RetailerDrawerHeaderState();
 }
 
-class _MyDrawerState extends State<MyDrawer> {
+class _RetailerDrawerHeaderState extends State<RetailerDrawerHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.lightBlue[400],
+      color: Colors.amber[500],
       width: double.infinity,
       height: 200,
       padding: const EdgeInsets.only(top: 20.0),
@@ -23,7 +23,7 @@ class _MyDrawerState extends State<MyDrawer> {
             height: 100,
           ),
           const Text(
-            "Farmer Profile",
+            "Retailer profile",
             style: TextStyle(color: Colors.black, fontSize: 22),
           ),
         ],

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/user.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/retailer_datatype.dart';
 
-class UserPreferences {
+class DefaultRetailer {
   static late SharedPreferences _preferences;
 
   static const _keyUser = 'user';

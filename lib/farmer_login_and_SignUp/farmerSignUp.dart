@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class MyRegister extends StatefulWidget {
-  const MyRegister({Key? key}) : super(key: key);
+class FarmerSignUp extends StatefulWidget {
+  const FarmerSignUp({Key? key}) : super(key: key);
 
   @override
-  _MyRegisterState createState() => _MyRegisterState();
+  _FarmerSignUpState createState() => _FarmerSignUpState();
 }
 
-class _MyRegisterState extends State<MyRegister> {
+class _FarmerSignUpState extends State<FarmerSignUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,6 +80,31 @@ class _MyRegisterState extends State<MyRegister> {
                                   ),
                                 ),
                                 hintText: "Email",
+                                hintStyle: const TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          TextField(
+                            style: const TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: Colors.pink,
+                                  ),
+                                ),
+                                hintText: "Phone Number",
                                 hintStyle: const TextStyle(
                                     color: Colors.black, fontSize: 20),
                                 border: OutlineInputBorder(

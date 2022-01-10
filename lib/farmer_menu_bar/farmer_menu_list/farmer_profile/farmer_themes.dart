@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyThemes {
+class FarmerTheme {
   static final primary = Colors.blue;
   static final primaryColor = Colors.blue.shade300;
 

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:firstproject/farmer_menu_bar/my_drawer_header.dart';
-import 'package:firstproject/farmer_menu_bar/farmer_menu_list/profile.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_drawer_header.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/page/farmer_profile.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/placedOrder.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/help.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/logout.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/homepage.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class FarmerDrawerBody extends StatefulWidget {
+  const FarmerDrawerBody({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _FarmerDrawerBodyState createState() => _FarmerDrawerBodyState();
 }
 
-class _HomeState extends State<Home> {
+class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
   var currentPage = DrawerSections.homepage;
 
   @override
@@ -21,8 +21,8 @@ class _HomeState extends State<Home> {
     var container;
     if (currentPage == DrawerSections.homepage) {
       container = const FarmerHomePage();
-    } else if (currentPage == DrawerSections.profile) {
-      container = const Profile();
+    } else if (currentPage == DrawerSections.farmer_profile) {
+      container = const FarmerProfilePage();
     } else if (currentPage == DrawerSections.placedOrder) {
       container = const PlacedOrder();
     } else if (currentPage == DrawerSections.help) {
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
           child: Container(
             child: Column(
               children: [
-                const MyDrawer(),
+                const FarmerDrawerHeader(),
                 MyDrawerList(),
               ],
             ),
@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
           menuItem(1, "Home", Icons.dashboard_outlined,
               currentPage == DrawerSections.homepage ? true : false),
           menuItem(2, "Profile", Icons.people_alt_outlined,
-              currentPage == DrawerSections.profile ? true : false),
+              currentPage == DrawerSections.farmer_profile ? true : false),
           menuItem(3, "Placed Order", Icons.event,
               currentPage == DrawerSections.placedOrder ? true : false),
           menuItem(4, "Help", Icons.notes,
@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
             if (id == 1) {
               currentPage = DrawerSections.homepage;
             } else if (id == 2) {
-              currentPage = DrawerSections.profile;
+              currentPage = DrawerSections.farmer_profile;
             } else if (id == 3) {
               currentPage = DrawerSections.placedOrder;
             } else if (id == 4) {
@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
 
 enum DrawerSections {
   homepage,
-  profile,
+  farmer_profile,
   placedOrder,
   help,
   logout,

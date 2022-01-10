@@ -4,27 +4,28 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/user.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/appbar_widget.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/button_widget.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/profile_widget.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/textfield_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/model/farmer_datatype.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/utils/default_farmer.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_appbar_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_button_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_profile_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_textfield_widget.dart';
 import 'package:path/path.dart';
 
-class EditProfilePage extends StatefulWidget {
+class FarmerEditProfilePage extends StatefulWidget {
+  const FarmerEditProfilePage({Key? key}) : super(key: key);
   @override
-  _EditProfilePageState createState() => _EditProfilePageState();
+  _FarmerEditProfilePageState createState() => _FarmerEditProfilePageState();
 }
 
-class _EditProfilePageState extends State<EditProfilePage> {
+class _FarmerEditProfilePageState extends State<FarmerEditProfilePage> {
   late User user;
 
   @override
   void initState() {
     super.initState();
 
-    user = UserPreferences.getUser();
+    user = DefaultFarmer.getUser();
   }
 
   @override
@@ -75,17 +76,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       user = user.copy(mobilenumber: mobilenumber),
                 ),
                 const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Address',
-                  text: user.address,
-                  maxLines: 5,
-                  onChanged: (address) => user = user.copy(address: address),
-                ),
-                const SizedBox(height: 24),
+                //const SizedBox(height: 24),
                 ButtonWidget(
                   text: 'Update Profile',
                   onClicked: () {
-                    UserPreferences.setUser(user);
+                    DefaultFarmer.setUser(user);
                     Navigator.of(context).pop();
                   },
                 ),

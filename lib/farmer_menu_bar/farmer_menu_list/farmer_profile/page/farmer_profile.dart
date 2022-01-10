@@ -1,22 +1,22 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/user.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/edit_profile_page.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/appbar_widget.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/button_widget.dart';
-// import 'package:firstproject/retailer_profile/widget/numbers_widget.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/profile_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/model/farmer_datatype.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/utils/default_farmer.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/page/farmer_editprofile.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_appbar_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_button_widget.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_profile_widget.dart';
 
-class ProfilePage extends StatefulWidget {
+class FarmerProfilePage extends StatefulWidget {
+  const FarmerProfilePage({Key? key}) : super(key: key);
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _FarmerProfilePageState createState() => _FarmerProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _FarmerProfilePageState extends State<FarmerProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.getUser();
+    final user = DefaultFarmer.getUser();
 
     return ThemeSwitchingArea(
       child: Builder(
@@ -29,7 +29,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 imagePath: user.imagePath,
                 onClicked: () async {
                   await Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                    MaterialPageRoute(
+                        builder: (context) => const FarmerEditProfilePage()),
                   );
                   setState(() {});
                 },
@@ -56,10 +57,6 @@ class _ProfilePageState extends State<ProfilePage> {
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           const SizedBox(height: 4),
-          Text(
-            user.email,
-            style: const TextStyle(color: Colors.deepPurple, fontSize: 18),
-          ),
         ],
       );
 
@@ -74,7 +71,18 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Mobile Number',
+              'Your Email Address',
+              style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              user.email,
+              style: const TextStyle(
+                  fontSize: 16, height: 1.4, color: Colors.deepPurple),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Your Mobile Number',
               style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 6),
@@ -84,15 +92,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   fontSize: 16, height: 1.4, color: Colors.deepPurple),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Address',
-              style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              user.address,
-              style: const TextStyle(fontSize: 14, height: 1.4),
-            ),
           ],
         ),
       );

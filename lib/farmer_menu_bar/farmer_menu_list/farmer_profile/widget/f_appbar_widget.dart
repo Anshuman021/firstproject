@@ -1,11 +1,11 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/themes.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/farmer_themes.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/utils/default_farmer.dart';
 
 AppBar buildAppBar(BuildContext context) {
-  final user = UserPreferences.getUser();
+  final user = DefaultFarmer.getUser();
   final isDarkMode = user.isDarkMode;
   final icon = isDarkMode ? CupertinoIcons.sun_max : CupertinoIcons.moon_stars;
 
@@ -18,13 +18,14 @@ AppBar buildAppBar(BuildContext context) {
         builder: (context) => IconButton(
           icon: Icon(icon),
           onPressed: () {
-            final theme = isDarkMode ? MyThemes.lightTheme : MyThemes.darkTheme;
+            final theme =
+                isDarkMode ? FarmerTheme.lightTheme : FarmerTheme.darkTheme;
 
             final switcher = ThemeSwitcher.of(context);
             switcher.changeTheme(theme: theme);
 
             final newUser = user.copy(isDarkMode: !isDarkMode);
-            UserPreferences.setUser(newUser);
+            DefaultFarmer.setUser(newUser);
           },
         ),
       ),

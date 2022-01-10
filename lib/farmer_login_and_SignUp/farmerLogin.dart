@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-//akshat
-class Mylogin extends StatefulWidget {
-  const Mylogin({Key? key}) : super(key: key);
+class FarmerLogin extends StatefulWidget {
+  const FarmerLogin({Key? key}) : super(key: key);
 
   @override
-  _MyLoginState createState() => _MyLoginState();
+  _FarmerLoginState createState() => _FarmerLoginState();
 }
 
-class _MyLoginState extends State<Mylogin> {
+class _FarmerLoginState extends State<FarmerLogin> {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,21 +1,21 @@
 //import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_menu_bar/my_drawer_header_retailer.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/profile_page.dart';
+import 'package:firstproject/retailer_menu_bar/Retailer_drawer_header.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/retailer_profile.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerhelp.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerlogout.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailercart.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerhomepage.dart';
 
-class RetailerDrawer extends StatefulWidget {
-  const RetailerDrawer({Key? key}) : super(key: key);
+class RetailerDrawerBody extends StatefulWidget {
+  const RetailerDrawerBody({Key? key}) : super(key: key);
 
   @override
-  _RetailerDrawerState createState() => _RetailerDrawerState();
+  _RetailerDrawerBodyState createState() => _RetailerDrawerBodyState();
 }
 
-class _RetailerDrawerState extends State<RetailerDrawer> {
+class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
   var currentPage = DrawerSections.retailerhomepage;
 
   @override
@@ -23,8 +23,8 @@ class _RetailerDrawerState extends State<RetailerDrawer> {
     var container;
     if (currentPage == DrawerSections.retailerhomepage) {
       container = const RetailerHomePage();
-    } else if (currentPage == DrawerSections.profile_page) {
-      container = ProfilePage();
+    } else if (currentPage == DrawerSections.retailer_profile) {
+      container = const RetailerProfilePage();
     } else if (currentPage == DrawerSections.retailercart) {
       container = const RetailerCart();
     } else if (currentPage == DrawerSections.retailerhelp) {
@@ -43,7 +43,7 @@ class _RetailerDrawerState extends State<RetailerDrawer> {
           child: Container(
             child: Column(
               children: [
-                const MyDrawerForRetailer(),
+                const RetailerDrawerHeader(),
                 MyDrawerList(),
               ],
             ),
@@ -68,7 +68,7 @@ class _RetailerDrawerState extends State<RetailerDrawer> {
           menuItem(1, "Home", Icons.dashboard_outlined,
               currentPage == DrawerSections.retailerhomepage ? true : false),
           menuItem(2, "Profile", Icons.people_alt_outlined,
-              currentPage == DrawerSections.profile_page ? true : false),
+              currentPage == DrawerSections.retailer_profile ? true : false),
           menuItem(3, "Cart Option", Icons.event,
               currentPage == DrawerSections.retailercart ? true : false),
           menuItem(4, "Help", Icons.notes,
@@ -90,7 +90,7 @@ class _RetailerDrawerState extends State<RetailerDrawer> {
             if (id == 1) {
               currentPage = DrawerSections.retailerhomepage;
             } else if (id == 2) {
-              currentPage = DrawerSections.profile_page;
+              currentPage = DrawerSections.retailer_profile;
             } else if (id == 3) {
               currentPage = DrawerSections.retailercart;
             } else if (id == 4) {
@@ -131,7 +131,7 @@ class _RetailerDrawerState extends State<RetailerDrawer> {
 
 enum DrawerSections {
   retailerhomepage,
-  profile_page,
+  retailer_profile,
   retailercart,
   retailerhelp,
   retailerlogout,

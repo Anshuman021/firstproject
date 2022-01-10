@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NumbersWidget extends StatelessWidget {
+  const NumbersWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -12,9 +13,9 @@ class NumbersWidget extends StatelessWidget {
           buildButton(context, '50', 'Followers'),
         ],
       );
-  Widget buildDivider() => Container(
+  Widget buildDivider() => const SizedBox(
         height: 24,
-        child: const VerticalDivider(),
+        child: VerticalDivider(),
       );
 
   Widget buildButton(BuildContext context, String value, String text) =>

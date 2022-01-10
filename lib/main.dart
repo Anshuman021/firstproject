@@ -1,24 +1,22 @@
 // import 'dart:js';
 
-import 'package:firstproject/retailer_items/flowers.dart';
-import 'package:firstproject/retailer_items/fruits.dart';
 import 'package:flutter/material.dart';
-import 'package:firstproject/farmer_login_and_register/login.dart';
-import 'package:firstproject/farmer_login_and_register/register.dart';
-import 'package:firstproject/farmer_menu_bar/home.dart';
+import 'package:firstproject/farmer_login_and_SignUp/farmerLogin.dart';
+import 'package:firstproject/farmer_login_and_SignUp/farmerSignUp.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_drawer_body.dart';
 import 'package:firstproject/user_verification/verification.dart';
 import 'package:firstproject/retailer_login_signup/retailersignup.dart';
 import 'package:firstproject/retailer_login_signup/retailerlogin.dart';
-import 'package:firstproject/retailer_menu_bar/retailerdrawer.dart';
+import 'package:firstproject/retailer_menu_bar/Retailer_drawer_body.dart';
 import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetables_list.dart';
-import 'package:firstproject/retailer_items/grains.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailerhomepage.dart';
-
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/user_preferences.dart';
-
+import 'package:firstproject/retailer_items/Fruits/fruits_pages/fruits_list.dart';
+import 'package:firstproject/retailer_items/Grains/grains_pages/grain_list.dart';
+import 'package:firstproject/retailer_items/Flowers/flower_pages/flower_list.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/default_retailer.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/utils/default_farmer.dart';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/themes.dart';
-
+//import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/farmer_themes.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/retailer_themes.dart';
 import 'package:flutter/services.dart';
 
 Future main() async {
@@ -28,7 +26,8 @@ Future main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  await UserPreferences.init();
+  await DefaultRetailer.init();
+  await DefaultFarmer.init();
 
   runApp(const MyApp());
 }
@@ -38,27 +37,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.getUser();
+    final retailer = DefaultRetailer.getUser();
+    final farmer = DefaultFarmer.getUser();
 
     return ThemeProvider(
-      initTheme: user.isDarkMode ? MyThemes.darkTheme : MyThemes.lightTheme,
+      initTheme: retailer.isDarkMode
+          ? RetailerTheme.darkTheme
+          : RetailerTheme.lightTheme,
+      //initTheme:farmer.isDarkMode ? FarmerTheme.darkTheme : FarmerTheme.lightTheme,
       child: Builder(
         builder: (context) => MaterialApp(
           debugShowCheckedModeBanner: false,
           home: const VerifyingUser(),
           routes: {
             'verification': (context) => const VerifyingUser(),
-            'login': (context) => const Mylogin(),
-            'register': (context) => const MyRegister(),
+            'login': (context) => const FarmerLogin(),
+            'register': (context) => const FarmerSignUp(),
             'retailerlogin': (context) => const RetailerLogin(),
             'retailersignup': (context) => const RetailerSignUp(),
-            'home': (context) => const Home(),
-            'retailerdrawer': (context) => const RetailerDrawer(),
+            'home': (context) => const FarmerDrawerBody(),
+            'retailerdrawer': (context) => const RetailerDrawerBody(),
             'vegetables_list': (context) => const VegList(),
-            'grains': (context) => const Grains(),
-            'flowers': (context) => const Flowers(),
-            'fruits': (context) => const Fruits(),
-            'retailerhomepage': (context) => const RetailerHomePage(),
+            'fruits_list': (context) => const FruitsList(),
+            'grain_list': (context) => const GrainList(),
+            'flower_list': (context) => const FlowerList(),
           },
         ),
       ),
