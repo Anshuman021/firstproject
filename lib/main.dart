@@ -32,7 +32,6 @@ Future main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  //static final String title = 'User Profile';
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +42,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (context) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          //theme: ThemeProvider.of(context),
-          //title: title,
-          home: const VegList(),
-
+          home: const VerifyingUser(),
           routes: {
             'verification': (context) => const VerifyingUser(),
             'login': (context) => const Mylogin(),
