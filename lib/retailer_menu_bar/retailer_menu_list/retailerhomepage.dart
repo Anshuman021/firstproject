@@ -32,7 +32,8 @@ class RetailerHomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/vegetables.jpg'),
+                        image: AssetImage(
+                            'assets/RetailerHomePageButton/vegetables.jpg'),
                         fit: BoxFit.fill,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -60,7 +61,8 @@ class RetailerHomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/fruits.jpg'),
+                        image: AssetImage(
+                            'assets/RetailerHomePageButton/fruits.jpg'),
                         fit: BoxFit.fill,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -87,7 +89,8 @@ class RetailerHomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/grains.jpg'),
+                        image: AssetImage(
+                            'assets/RetailerHomePageButton/grains.jpg'),
                         fit: BoxFit.fill,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -114,7 +117,8 @@ class RetailerHomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/flowers.jpg'),
+                        image: AssetImage(
+                            'assets/RetailerHomePageButton/flowers.jpg'),
                         fit: BoxFit.fill,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(20)),

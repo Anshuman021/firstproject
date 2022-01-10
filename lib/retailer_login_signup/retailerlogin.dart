@@ -13,7 +13,8 @@ class _RetailerLoginState extends State<RetailerLogin> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/retailer_login.jpg'),
+              image:
+                  AssetImage('assets/RetailerLoginSIgnUp/retailer_login.jpg'),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,

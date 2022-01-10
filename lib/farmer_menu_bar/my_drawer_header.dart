@@ -21,24 +21,11 @@ class _MyDrawerState extends State<MyDrawer> {
           Container(
             margin: const EdgeInsets.only(bottom: 10),
             height: 100,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage('assets/Profile.jpg'),
-              ),
-            ),
           ),
           const Text(
             "Farmer Profile",
             style: TextStyle(color: Colors.black, fontSize: 22),
           ),
-          // Text(
-          //   "info@rapidtech.dev",
-          //   style: TextStyle(
-          //     color: Colors.grey[200],
-          //     fontSize: 14,
-          //   ),
-          // ),
         ],
       ),
     );

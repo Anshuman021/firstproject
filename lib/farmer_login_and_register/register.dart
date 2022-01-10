@@ -15,7 +15,7 @@ class _MyRegisterState extends State<MyRegister> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/farmer_signup.jpg'),
+              image: AssetImage('assets/farmerLoginSignUp/farmer_signup.jpg'),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,

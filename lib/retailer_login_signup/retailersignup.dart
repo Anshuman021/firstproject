@@ -15,7 +15,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/Kissan_flutter_02.jpg'),
+              image: AssetImage(
+                  'assets/RetailerLoginSIgnUp/Kissan_flutter_02.jpg'),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,

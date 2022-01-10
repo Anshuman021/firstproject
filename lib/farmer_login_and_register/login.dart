@@ -14,7 +14,7 @@ class _MyLoginState extends State<Mylogin> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/Kissan_flutter.jpg'),
+              image: AssetImage('assets/farmerLoginSignUp/Kissan_flutter.jpg'),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
