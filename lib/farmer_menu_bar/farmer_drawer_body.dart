@@ -18,6 +18,7 @@ class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_typing_uninitialized_variables
     var container;
     if (currentPage == DrawerSections.homepage) {
       container = const FarmerHomePage();
@@ -38,6 +39,7 @@ class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
       body: container,
       drawer: Drawer(
         child: SingleChildScrollView(
+          // ignore: avoid_unnecessary_containers
           child: Container(
             child: Column(
               children: [
@@ -51,6 +53,7 @@ class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget MyDrawerList() {
     return Container(
       padding: const EdgeInsets.only(
@@ -125,6 +128,7 @@ class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
 
 enum DrawerSections {
   homepage,
+  // ignore: constant_identifier_names
   farmer_profile,
   placedOrder,
   help,

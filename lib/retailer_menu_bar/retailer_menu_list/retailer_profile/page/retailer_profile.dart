@@ -31,7 +31,7 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
                 onClicked: () async {
                   await Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (context) => RetailerEditProfilePage()),
+                        builder: (context) => const RetailerEditProfilePage()),
                   );
                   setState(() {});
                 },

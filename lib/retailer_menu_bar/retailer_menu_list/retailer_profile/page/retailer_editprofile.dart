@@ -43,6 +43,7 @@ class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
                   isEdit: true,
                   onClicked: () async {
                     final image = await ImagePicker()
+                        // ignore: deprecated_member_use
                         .getImage(source: ImageSource.gallery);
 
                     if (image == null) return;

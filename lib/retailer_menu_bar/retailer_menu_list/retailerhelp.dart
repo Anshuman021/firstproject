@@ -5,10 +5,6 @@ class RetailerHelp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Text("Help Page"),
-      ),
-    );
+    return const Scaffold();
   }
 }

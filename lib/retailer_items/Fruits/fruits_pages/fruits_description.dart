@@ -10,6 +10,7 @@ class VegetableDescription extends StatefulWidget {
   final String productdetail;
   final String pPrice;
   final String pPromotionPrice;
+  // ignore: use_key_in_widget_constructors
   const VegetableDescription(
       {required this.id,
       required this.product,

@@ -13,9 +13,9 @@ class NumbersWidget extends StatelessWidget {
           buildButton(context, '50', 'Followers'),
         ],
       );
-  Widget buildDivider() => Container(
+  Widget buildDivider() => const SizedBox(
         height: 24,
-        child: const VerticalDivider(),
+        child: VerticalDivider(),
       );
 
   Widget buildButton(BuildContext context, String value, String text) =>

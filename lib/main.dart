@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final retailer = DefaultRetailer.getUser();
+    // ignore: unused_local_variable
     final farmer = DefaultFarmer.getUser();
 
     return ThemeProvider(

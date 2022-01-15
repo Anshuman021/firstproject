@@ -7,6 +7,7 @@ class RetailerTheme {
   static final darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.grey.shade900,
     primaryColorDark: primaryColor,
+    // ignore: deprecated_member_use
     accentColor: Colors.blue,
     colorScheme: const ColorScheme.dark(primary: primary),
     dividerColor: Colors.white,

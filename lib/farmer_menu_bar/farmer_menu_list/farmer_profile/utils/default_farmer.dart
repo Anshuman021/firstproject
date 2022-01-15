@@ -6,7 +6,7 @@ import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/mod
 class DefaultFarmer {
   static late SharedPreferences _preferences;
 
-  static const _keyUser = 'user1';
+  static const _keyUser = 'user';
   static const myUser = User(
     imagePath:
         'https://tse1.mm.bing.net/th?id=OIP.iPT2f-NkI6nwmeMnV_YazAHaHa&pid=Api&P=0&w=175&h=175',
@@ -19,8 +19,8 @@ class DefaultFarmer {
   static Future init() async =>
       _preferences = await SharedPreferences.getInstance();
 
-  static Future setUser(User user1) async {
-    final json = jsonEncode(user1.toJson());
+  static Future setUser(User user) async {
+    final json = jsonEncode(user.toJson());
 
     await _preferences.setString(_keyUser, json);
   }

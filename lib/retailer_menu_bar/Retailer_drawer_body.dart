@@ -20,6 +20,7 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_typing_uninitialized_variables
     var container;
     if (currentPage == DrawerSections.retailerhomepage) {
       container = const RetailerHomePage();
@@ -40,6 +41,7 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
       body: container,
       drawer: Drawer(
         child: SingleChildScrollView(
+          // ignore: avoid_unnecessary_containers
           child: Container(
             child: Column(
               children: [
@@ -57,6 +59,7 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget MyDrawerList() {
     return Container(
       padding: const EdgeInsets.only(
@@ -131,6 +134,7 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
 
 enum DrawerSections {
   retailerhomepage,
+  // ignore: constant_identifier_names
   retailer_profile,
   retailercart,
   retailerhelp,
