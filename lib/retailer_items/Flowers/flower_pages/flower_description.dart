@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:firstproject/retailer_items/Vegetables/veg_constant/veg_data.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart';
+// import 'package:firstproject/retailer_items/Flowers/flower_constant/flower_data.dart';
+import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
 import 'package:line_icons/line_icons.dart';
 
 class VegetableDescription extends StatefulWidget {
@@ -128,7 +128,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                 Row(
                   children: <Widget>[
                     Text(
-                      " ₹ " + widget.pPromotionPrice + " / Kg ",
+                      " ₹ " + widget.pPromotionPrice,
                       style: const TextStyle(
                           color: Colors.green,
                           fontSize: 17,
@@ -138,7 +138,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                       width: 20,
                     ),
                     Text(
-                      " ₹ " + widget.pPrice + " / Kg ",
+                      " ₹ " + widget.pPrice,
                       style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -243,7 +243,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                   child: Text(
                     "ADD TO CART",
                     style: TextStyle(
-                      color: white,
+                      color: Colors.purple,
                       fontSize: 20,
                     ),
                   ),

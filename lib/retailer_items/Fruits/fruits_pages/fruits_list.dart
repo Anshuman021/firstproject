@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_constant/veg_data.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetable_description.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart';
+import 'package:firstproject/retailer_items/Fruits/fruits_constant/fruits_data.dart';
+import 'package:firstproject/retailer_items/Fruits/fruits_pages/fruits_description.dart';
+import 'package:firstproject/retailer_items/Fruits/fruits_theme/fruits_colors.dart';
 
 import 'package:line_icons/line_icons.dart';
 
@@ -29,11 +29,11 @@ class _FruitsListState extends State<FruitsList> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                "Vegetables",
+                "Fruits",
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w500,
-                    color: Colors.lightBlueAccent),
+                    color: Colors.amber),
               ),
               Row(
                 children: const <Widget>[

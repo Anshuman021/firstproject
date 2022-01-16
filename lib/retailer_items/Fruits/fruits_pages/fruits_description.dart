@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:firstproject/retailer_items/Vegetables/veg_constant/veg_data.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart';
+//import 'package:firstproject/retailer_items/Fruits/fruits_constant/fruits_data.dart';
+import 'package:firstproject/retailer_items/Fruits/fruits_theme/fruits_colors.dart';
 import 'package:line_icons/line_icons.dart';
 
 class VegetableDescription extends StatefulWidget {
@@ -243,7 +243,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                   child: Text(
                     "ADD TO CART",
                     style: TextStyle(
-                      color: white,
+                      color: Colors.amberAccent,
                       fontSize: 20,
                     ),
                   ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_constant/veg_data.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetable_description.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart';
-
+import 'package:firstproject/retailer_items/Flowers/flower_constant/flower_data.dart';
+import 'package:firstproject/retailer_items/Flowers/flower_pages/flower_description.dart';
+import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
 import 'package:line_icons/line_icons.dart';
 
 class FlowerList extends StatefulWidget {
@@ -29,11 +28,11 @@ class _FlowerListState extends State<FlowerList> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                "Vegetables",
+                "Flowers",
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w500,
-                    color: Colors.lightBlueAccent),
+                    color: Colors.purple),
               ),
               Row(
                 children: const <Widget>[
@@ -145,8 +144,7 @@ class _FlowerListState extends State<FlowerList> {
                                     Text(
                                       " ₹ " +
                                           items[index]['p_promotion_price']
-                                              .toString() +
-                                          " / Kg",
+                                              .toString(),
                                       style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold,
@@ -158,8 +156,7 @@ class _FlowerListState extends State<FlowerList> {
                                     ),
                                     Text(
                                       " ₹ " +
-                                          items[index]['p_price'].toString() +
-                                          "/ Kg",
+                                          items[index]['p_price'].toString(),
                                       style: const TextStyle(
                                           fontSize: 13,
                                           color: warning,

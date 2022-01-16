@@ -1,141 +1,141 @@
 //import 'package:flutter/material.dart';
 
-List menus = ["Choose the vegetable"];
+List menus = ["Choose the Fruit"];
 
 List items = [
   {
     "id": 1,
-    "product": "Tomato (टमाटर)",
+    "product": "Apple",
     "productdetail":
-        " Tomato Contains: \n Calories: 18,\n Protein: 0.9 grams,\n Sugar: 2.6 grams, \n Fiber: 1.2 grams",
-    "img": "assets/vegetables/tomato.jpg",
+        " Apple Contains: \n Calories: 52,\n Water: 86%,\n Protein: 0.3 grams,\n Carbs: 13.8 grams,\n Sugar: 10.4 grams,\n Fiber: 2.4 grams.",
+    "img": "assets/RetailerFruits/Apple.JPG",
     "p_price": 80.00,
-    "p_promotion_price": 55.00
+    "p_promotion_price": 60.00
   },
   {
     "id": 2,
-    "product": "Onion (प्याज)",
+    "product": "Avocado",
     "productdetail":
-        " Onion Contains: \n vitamin C, \n vitamin B6, \n potassium, \n folate,\n and manganese.",
-    "img": "assets/vegetables/onion.jpg",
-    "p_price": 90.00,
-    "p_promotion_price": 40.00
+        " Avocado Contains: \n Calories: 322,\n Fat: 30 grams,\n Protein: 4 grams,\n Carbs: 17 grams,\n Fiber: 14 grams,\n Vitamin C: 22%",
+    "img": "assets/RetailerFruits/Avocado.JPG",
+    "p_price": 120.00,
+    "p_promotion_price": 60.00
   },
   {
     "id": 3,
-    "product": "Potato (आलू)",
+    "product": "Banana",
     "productdetail":
-        " Potato Contains:\n Calories: 87, \n Protein: 1.9 grams, \n Sugar: 0.9 grams, \n Fiber: 1.8 grams",
-    "img": "assets/vegetables/potato.jpg",
-    "p_price": 100.00,
+        " Banana Contains:\nCalories: 89,\n Water: 75%,\n Protein: 1.1 grams,\n Carbs: 22.8 grams,\n Sugar: 12.2 grams,\n Fiber: 2.6 grams,\n Fat: 0.3 grams",
+    "img": "assets/RetailerFruits/Banana.JPG",
+    "p_price": 110.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 4,
-    "product": "Spinach (पालक)",
+    "product": "Cherry",
     "productdetail":
-        " Spinach Contains: \n Calories: 23,\n Protein: 2.9 grams, \n Sugar: 0.4 grams, \n Fiber: 2.2 grams",
-    "img": "assets/vegetables/Spinach.jpg",
-    "p_price": 120.00,
-    "p_promotion_price": 60.00
+        " Cherry Contains: \n vitamins C,\n vitamins A,\n vitamins K ,\n potassium,\n magnesium,\n calcium",
+    "img": "assets/RetailerFruits/Cherry.JPG",
+    "p_price": 140.00,
+    "p_promotion_price": 70.00
   },
   {
     "id": 5,
-    "product": "Pumpkin (कद्दू)",
+    "product": "Coconut",
     "productdetail":
-        " Pumpkin Contains:\n Calories: 137,\n Protein: 3 grams,\n Fat: 7 grams, \n Fiber: 7 grams, \n Vitamin A",
-    "img": "assets/vegetables/pumpkin.jpg",
-    "p_price": 100.00,
-    "p_promotion_price": 50.00
+        " Coconut Contains:\n Vitamin C	5%,\n Calcium	1%,\n Iron	13%,\n Vitamin D	0%,\n Vitamin B6	5%,\n Cobalamin	0%,\n Magnesium	8%",
+    "img": "assets/RetailerFruits/Coconut.JPG",
+    "p_price": 160.00,
+    "p_promotion_price": 100.00
   },
   {
     "id": 6,
-    "product": "Radish (मूली)",
+    "product": "Grape",
     "productdetail":
-        " Radish Contains:\n Calories: 9,\n Protein: 0 grams,\n Fat: 1 gram,\n Fiber: 1 gram,\n Sugar: 1 gram",
-    "img": "assets/vegetables/radish.jpg",
-    "p_price": 120.00,
-    "p_promotion_price": 60.00
+        " Grape Contains:\n calcium,\n magnesium,\n potassium,\n phosphorus,\n manganese,\n vitamin K (1, 35)",
+    "img": "assets/RetailerFruits/Grape.JPG",
+    "p_price": 140.00,
+    "p_promotion_price": 80.00
   },
   {
     "id": 7,
-    "product": "Lady Finger (भिन्डी )",
+    "product": "Guava",
     "productdetail":
-        " LadyFinger Contains:\n Calories: 33, \n Carbs: 7 grams,\n Protein: 2 grams, \n Fat: 0 grams, \n Fiber: 3 grams, \n Vitamin A",
-    "img": "assets/vegetables/lady-finger.jpg",
-    "p_price": 100.00,
-    "p_promotion_price": 40.00
-  },
-  {
-    "id": 8,
-    "product": "Red Chilli (लाल मिर्च)",
-    "productdetail":
-        " RedChilli Contains:\n Calories: 6,\n Water: 88%,\n Protein: 0.3 grams,\n Carbs: 1.3 grams,\n Sugar: 0.8 grams,\n Fiber: 0.2 grams",
-    "img": "assets/vegetables/Red-Chilli.jpg",
+        " Guava Contains:\n Calories: 37,\n Fat: 1 gram,\n Cholesterol: 0 milligrams,\n Sodium: 1 milligram,\n Carbohydrates: 8 grams,\n Fiber: 3 grams,\n Sugar: 5 grams",
+    "img": "assets/RetailerFruits/Guava.JPG",
     "p_price": 120.00,
     "p_promotion_price": 70.00
   },
   {
-    "id": 9,
-    "product": "Peas (मटर)",
+    "id": 8,
+    "product": "Kiwi",
     "productdetail":
-        " Peas Contains:\n Calories: 62,\n Carbs: 11 grams,\n Fiber: 4 grams,\n Protein: 4 grams,\n Vitamin A: 34%",
-    "img": "assets/vegetables/Peas.jpg",
-    "p_price": 130.00,
-    "p_promotion_price": 60.00
+        " Kiwi Contains:\n Vitamin C	154%,\n Calcium	3%,\n Iron	1%,\n	Vitamin D	0%,\n Vitamin B6	5%,\n	Cobalamin	0%,\n Magnesium	4%",
+    "img": "assets/RetailerFruits/Kiwi.JPG",
+    "p_price": 100.00,
+    "p_promotion_price": 80.00
+  },
+  {
+    "id": 9,
+    "product": "Mango",
+    "productdetail":
+        " Mango Contains:\n 107 calories,\n 3gm fiber,\n 24gm sugar,\n 1gm protein,\n 25% vitamin A,\n 76% vitamin C,\n 257mg potassium.",
+    "img": "assets/RetailerFruits/Mango.JPG",
+    "p_price": 150.00,
+    "p_promotion_price": 80.00
   },
   {
     "id": 10,
-    "product": "Cucumber (खीरा)",
+    "product": "Orange",
     "productdetail":
-        " Cucumber Contains:\n Calories: 30,\n Total fat: 0 grams,\n Protein: 3 grams,\n Fiber: 2 grams,\n Vitamin C: 10%",
-    "img": "assets/vegetables/Cucumber.jpg",
-    "p_price": 100.00,
-    "p_promotion_price": 60.00
+        " Orange Contains:\n 60 calories,\n 3gm fiber,\n 12gm sugar,\n 1gm protein,\n 14mg vitamin A,\n 70mg vitamin C",
+    "img": "assets/RetailerFruits/Orange.JPG",
+    "p_price": 120.00,
+    "p_promotion_price": 80.00
   },
   {
     "id": 11,
-    "product": "Cabbage (पत्ता गोभी)",
+    "product": "Papaya",
     "productdetail":
-        " Cabbage Contains:\n Calories: 22,\n Protein: 1 gram,\n Fiber: 2 grams,\n Vitamin K: 85%(RDI),\n Vitamin C: 54%",
-    "img": "assets/vegetables/cabbage.jpg",
-    "p_price": 100.00,
-    "p_promotion_price": 60.00
+        " Papaya Contains:\n 119 calories,\n 1.3gm protein,\n 30gm carbohydrates,\n 1gm fat,\n 4.7gm fiber,\n 21.58gm sugar",
+    "img": "assets/RetailerFruits/Papaya.JPG",
+    "p_price": 120.00,
+    "p_promotion_price": 80.00
   },
   {
     "id": 12,
-    "product": "Beetroot (चकुंदर)",
+    "product": "Pear",
     "productdetail":
-        " Beetroot Contains:\n Calories: 43,\n Water: 88%,\n Protein: 1.6 grams,\n Carbs: 9.6 grams,\n Sugar: 6.8 grams,\n Fiber: 2.8 grams",
-    "img": "assets/vegetables/Beetroot.jpg",
-    "p_price": 100.00,
+        " Pear Contains:\n Calories: 101,\n Protein: 1 gm,\n Carbs: 27 gm,\n Fiber: 6 gm,\n Vitamin C: 12%,\n Vitamin K: 6% ,\n Potassium: 4% ,\n Copper: 16%",
+    "img": "assets/RetailerFruits/Pear.JPG",
+    "p_price": 90.00,
     "p_promotion_price": 50.00
   },
   {
     "id": 13,
-    "product": "Corn (मक्का)",
+    "product": "Pomegranate",
     "productdetail":
-        " Corn Contains:\n Calories: 90,\n Protein: 3 grams (g),\n Fat: 1 g,\n Carbohydrates: 19 g,\n Fiber: 1 g",
-    "img": "assets/vegetables/Corn.jpg",
-    "p_price": 90.00,
-    "p_promotion_price": 45.00
+        " Pomegranate Contains:\n 72 calories,\n 27g carbohydrates,\n 89g sugar,\n 5g fiber,\n 205mg potassium,\n 9mg vitamin C,\n 3mg vitamin K,\n 33µg folate",
+    "img": "assets/RetailerFruits/Pomegranate.JPG",
+    "p_price": 120.00,
+    "p_promotion_price": 75.00
   },
   {
     "id": 14,
-    "product": "Carrot (गाजर)",
+    "product": "Strawberry",
     "productdetail":
-        " Carrots Conains:\n Calories: 41,\n Water: 88%,\n Protein: 0.9 grams,\n Carbs: 9.6 grams,\n Sugar: 4.7 grams,\n Fiber: 2.8 grams",
-    "img": "assets/vegetables/Carrot.jpg",
-    "p_price": 120.00,
-    "p_promotion_price": 60.00
+        " Strawberry Conains:\n calories: 53,\n protein: 1.11g,\n carbohydrates: 12.7g,\n dietary fiber: 3.30g,\n calcium: 27mg,\n iron: 0.68mg,\n magnesium: 22mg,\n phosphorus: 40mg,\n potassium: 254mg,\n vitamin C: 97mg,\n folate: 40mg",
+    "img": "assets/RetailerFruits/Strawberry.JPG",
+    "p_price": 140.00,
+    "p_promotion_price": 90.00
   },
   {
     "id": 15,
-    "product": "Brinjal (बैगन)",
+    "product": "WaterMelon",
     "productdetail":
-        " Brinjal Contains:\n Calories: 20,\n Carbs: 5 grams,\n Fiber: 3 grams,\n Protein: 1 gram,\n Manganese: 10%,\n Folate: 5%,\n Potassium: 5%",
-    "img": "assets/vegetables/Brinjal.jpg",
-    "p_price": 90.00,
-    "p_promotion_price": 35.00
+        " WaterMelon Contains:\n Calories: 46,\n Carbs: 11.5g,\n Fiber: 0.6g,\n Sugar: 9.4g,\n Protein: 0.9g,\n Fat: 0.2g ,\n Vitamin A: 5%,\n Vitamin C: 14%",
+    "img": "assets/RetailerFruits/Watermelon.JPG",
+    "p_price": 100.00,
+    "p_promotion_price": 75.00
   },
 ];

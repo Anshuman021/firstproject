@@ -1,140 +1,140 @@
 //import 'package:flutter/material.dart';
 
-List menus = ["Choose the vegetable"];
+List menus = ["Choose the Flower"];
 
 List items = [
   {
     "id": 1,
-    "product": "Tomato (टमाटर)",
+    "product": "Abutilon",
     "productdetail":
-        " Tomato Contains: \n Calories: 18,\n Protein: 0.9 grams,\n Sugar: 2.6 grams, \n Fiber: 1.2 grams",
-    "img": "assets/vegetables/tomato.jpg",
+        " Abutilon Contains: \n abutilon, (genus Abutilon),\n genus of over 100\n species of herbaceous plants \n and partly woody\n shrubs of the mallow \n family (Malvaceae) \n native to tropical\n  and warm temperate areas.\n It includes several species\n used as houseplants\n and in gardens for their\n white to deep orange,\n usually nodding,\n five-petaled blossoms.",
+    "img": "assets/RetailerFlowers/Abutilon.jpg",
     "p_price": 80.00,
     "p_promotion_price": 55.00
   },
   {
     "id": 2,
-    "product": "Onion (प्याज)",
+    "product": "Acacia",
     "productdetail":
-        " Onion Contains: \n vitamin C, \n vitamin B6, \n potassium, \n folate,\n and manganese.",
-    "img": "assets/vegetables/onion.jpg",
+        " Acacia Contains: \n The flowers are usually\n yellow but occasionally white\n and have many stamens apiece\n, giving each one a fuzzy appearance.\n The fruits are legumes and are\n highly variable in appearance,\n depending on the species.\n Acacias are often confused\n with members of closely\n related genus Mimosa.\n Wattle tree (Acacia species).",
+    "img": "assets/RetailerFlowers/Acacia.jpg",
     "p_price": 90.00,
     "p_promotion_price": 40.00
   },
   {
     "id": 3,
-    "product": "Potato (आलू)",
+    "product": "Aconite",
     "productdetail":
-        " Potato Contains:\n Calories: 87, \n Protein: 1.9 grams, \n Sugar: 0.9 grams, \n Fiber: 1.8 grams",
-    "img": "assets/vegetables/potato.jpg",
-    "p_price": 100.00,
+        " Aconite Contains:\n Aconitum napellus,\n monk's-hood,\n aconite or wolfsbane, \nis a species \nof highly toxic flowering plant \nin the genus Aconitum of the \nfamily Ranunculaceae,\n native and endemic to\n western and central Europe.\n It is an herbaceous perennial\n plant growing to 1 m\n (3 ft 3 in) tall, with\n hairless stems and leaves.",
+    "img": "assets/RetailerFlowers/Aconite.jpg",
+    "p_price": 75.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 4,
-    "product": "Spinach (पालक)",
+    "product": "Allium",
     "productdetail":
-        " Spinach Contains: \n Calories: 23,\n Protein: 2.9 grams, \n Sugar: 0.4 grams, \n Fiber: 2.2 grams",
-    "img": "assets/vegetables/Spinach.jpg",
-    "p_price": 120.00,
+        " Allium Contains: \n Allium is a genus of\n monocotyledonous flowering\n plants that includes hundreds of \nspecies, including the cultivated\n onion, garlic, scallion, shallot, leek, \n chives. The generic name Allium \n is the Latin word for garlic,\n and the type species for\n the genus is Allium sativum\n which means cultivated garlic",
+    "img": "assets/RetailerFlowers/Allium.jpg",
+    "p_price": 97.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 5,
-    "product": "Pumpkin (कद्दू)",
+    "product": "Alstroemeria",
     "productdetail":
-        " Pumpkin Contains:\n Calories: 137,\n Protein: 3 grams,\n Fat: 7 grams, \n Fiber: 7 grams, \n Vitamin A",
-    "img": "assets/vegetables/pumpkin.jpg",
-    "p_price": 100.00,
+        " Alstroemeria Contains:\nAlstroemeria commonly called \nthe Peruvian lily or lily of the Incas,\n is a genus of flowering plants\n in the family Alstroemeriaceae. \nThey are all native to South America\n although some have become \nnaturalized in the United States,\n Mexico, Australia, New Zealand,\n Madeira and the Canary Islands.",
+    "img": "assets/RetailerFlowers/Alstroemeria.jpg",
+    "p_price": 78.00,
     "p_promotion_price": 50.00
   },
   {
     "id": 6,
-    "product": "Radish (मूली)",
+    "product": "Billbergia",
     "productdetail":
-        " Radish Contains:\n Calories: 9,\n Protein: 0 grams,\n Fat: 1 gram,\n Fiber: 1 gram,\n Sugar: 1 gram",
-    "img": "assets/vegetables/radish.jpg",
-    "p_price": 120.00,
+        " Billbergia Contains:\n billbergia, any member of a genus\n (Billbergia) of evergreen epiphytes\n of the pineapple family\n (Bromeliaceae), containing more\n than 50 South American species. \nSeveral species are grown indoors\n as decorative plants for their\n colourful foliage, flowers, or bracts\n (leaflike clusters beneath\n the flowers).",
+    "img": "assets/RetailerFlowers/Billbergia.jpg",
+    "p_price": 85.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 7,
-    "product": "Lady Finger (भिन्डी )",
+    "product": "Blanket",
     "productdetail":
-        " LadyFinger Contains:\n Calories: 33, \n Carbs: 7 grams,\n Protein: 2 grams, \n Fat: 0 grams, \n Fiber: 3 grams, \n Vitamin A",
-    "img": "assets/vegetables/lady-finger.jpg",
-    "p_price": 100.00,
+        " Blanket Contains:\n Blanket is a genus of flowering \nplants in the sunflower family,\n Asteraceae, native to North and\n South America. It was named\n after Maître Gaillard\n de Charentonneau, an 18th-century\n French magistrate who was\n an enthusiastic botanist",
+    "img": "assets/RetailerFlowers/Blanket.jpg",
+    "p_price": 89.00,
     "p_promotion_price": 40.00
   },
   {
     "id": 8,
-    "product": "Red Chilli (लाल मिर्च)",
+    "product": "Bletilla",
     "productdetail":
-        " RedChilli Contains:\n Calories: 6,\n Water: 88%,\n Protein: 0.3 grams,\n Carbs: 1.3 grams,\n Sugar: 0.8 grams,\n Fiber: 0.2 grams",
-    "img": "assets/vegetables/Red-Chilli.jpg",
-    "p_price": 120.00,
+        " Bletilla Contains:\nBletilla, common name \nurn orchid, is a temperate,\n terrestrial genus of orchids\n containing five currently recognized\n species distributed through China,\n Japan, Taiwan, south to Vietnam,\n Thailand and Myanmar.",
+    "img": "assets/RetailerFlowers/Bletilla.jpg",
+    "p_price": 99.00,
     "p_promotion_price": 70.00
   },
   {
     "id": 9,
-    "product": "Peas (मटर)",
+    "product": "CallaLily",
     "productdetail":
-        " Peas Contains:\n Calories: 62,\n Carbs: 11 grams,\n Fiber: 4 grams,\n Protein: 4 grams,\n Vitamin A: 34%",
-    "img": "assets/vegetables/Peas.jpg",
-    "p_price": 130.00,
+        " CallaLily Contains:\n CallaLily is a genus of eight\n species of herbaceous, perennial,\n flowering plants in the family\n Araceae, native to southern Africa \nfrom South Africa north to Malawi.\n The genus has been introduced on\n all continents except Antarctica",
+    "img": "assets/RetailerFlowers/CallaLily.jpg",
+    "p_price": 88.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 10,
-    "product": "Cucumber (खीरा)",
+    "product": "CannaLily",
     "productdetail":
-        " Cucumber Contains:\n Calories: 30,\n Total fat: 0 grams,\n Protein: 3 grams,\n Fiber: 2 grams,\n Vitamin C: 10%",
-    "img": "assets/vegetables/Cucumber.jpg",
+        " CannaLily Contains:\n Cannalily plant is a rhizomatous\n perennial with tropical-like foliage\n and large flowers that resemble\n that of iris.Canna lilies are low \n maintenance and easy to grow,\n and both their flowers and foliage \n offer long lasting color in the\n garden. The flower color may be red,\n orange, or yellow",
+    "img": "assets/RetailerFlowers/CannaLily.jpg",
     "p_price": 100.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 11,
-    "product": "Cabbage (पत्ता गोभी)",
+    "product": "Capeleadwort",
     "productdetail":
-        " Cabbage Contains:\n Calories: 22,\n Protein: 1 gram,\n Fiber: 2 grams,\n Vitamin K: 85%(RDI),\n Vitamin C: 54%",
-    "img": "assets/vegetables/cabbage.jpg",
-    "p_price": 100.00,
+        " Capeleadwort Contains:\n Capeleadwort is an evergreen vine \nto sprawling, mounding shrub \nboasting a profusion of beautiful\n sky-blue, five-lobed,trumpet-shaped\n flowers on short racemes\n over a long season.",
+    "img": "assets/RetailerFlowers/Capeleadwort.jpg",
+    "p_price": 120.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 12,
-    "product": "Beetroot (चकुंदर)",
+    "product": "Cardinal",
     "productdetail":
-        " Beetroot Contains:\n Calories: 43,\n Water: 88%,\n Protein: 1.6 grams,\n Carbs: 9.6 grams,\n Sugar: 6.8 grams,\n Fiber: 2.8 grams",
-    "img": "assets/vegetables/Beetroot.jpg",
-    "p_price": 100.00,
+        " Cardinal Contains:\n Cardinal flower is a brilliant scarlet \n colored native wildflower that grows\n in marshes, stream banks and low\n woods. Its extremely showy\n blossoms can be recognized at \nconsiderable distance. Few native \nplants have flowers of such intense\n color as this common\n herbaceous perennial.",
+    "img": "assets/RetailerFlowers/Cardinal.jpg",
+    "p_price": 98.00,
     "p_promotion_price": 50.00
   },
   {
     "id": 13,
-    "product": "Corn (मक्का)",
+    "product": "Celosia",
     "productdetail":
-        " Corn Contains:\n Calories: 90,\n Protein: 3 grams (g),\n Fat: 1 g,\n Carbohydrates: 19 g,\n Fiber: 1 g",
-    "img": "assets/vegetables/Corn.jpg",
+        " Celosia Contains:\n Celosia is a small genus of\n edible and ornamental plants in \nthe amaranth family, Amaranthaceae.\n The generic name is derived\n from the Ancient Greek word \n, meaning burning, and refers\n to the flame-like flower heads",
+    "img": "assets/RetailerFlowers/Celosia.jpg",
     "p_price": 90.00,
     "p_promotion_price": 45.00
   },
   {
     "id": 14,
-    "product": "Carrot (गाजर)",
+    "product": "DianthusBarbatus",
     "productdetail":
-        " Carrots Conains:\n Calories: 41,\n Water: 88%,\n Protein: 0.9 grams,\n Carbs: 9.6 grams,\n Sugar: 4.7 grams,\n Fiber: 2.8 grams",
-    "img": "assets/vegetables/Carrot.jpg",
-    "p_price": 120.00,
+        " DianthusBarbatus Conains:\n Dianthus barbatus is a\n biennial or short-lived perennial\n that is often grown as an annual.\n It thrives in loamy, slightly\n alkaline soil in sun or partial \nshade in hot summer climates.\n The flowers grow in rounded,\n dense clusters.\n Colors range from white through \nintense red and purple, often bicolor. \nThere are many cultivars available,\n including double-flowered \nand dwarf forms. ",
+    "img": "assets/RetailerFlowers/DianthusBarbatus.jpg",
+    "p_price": 110.00,
     "p_promotion_price": 60.00
   },
   {
     "id": 15,
-    "product": "Brinjal (बैगन)",
+    "product": "Diascia",
     "productdetail":
-        " Brinjal Contains:\n Calories: 20,\n Carbs: 5 grams,\n Fiber: 3 grams,\n Protein: 1 gram,\n Manganese: 10%,\n Folate: 5%,\n Potassium: 5%",
-    "img": "assets/vegetables/Brinjal.jpg",
+        " Diascia Contains:\n Diascia is a genus\n of around 70 species of herbaceous\n annual and perennial flowering\n plants of the family Scrophulari-\n-aceae, native to southern Africa,\n including South Africa,\n Lesotho and neighbouring areas.",
+    "img": "assets/RetailerFlowers/Diascia.jpg",
     "p_price": 90.00,
     "p_promotion_price": 35.00
   },

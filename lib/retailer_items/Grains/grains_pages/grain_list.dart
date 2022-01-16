@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_constant/veg_data.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetable_description.dart';
-import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart';
-
+import 'package:firstproject/retailer_items/Grains/grains_constant/grain_data.dart';
+import 'package:firstproject/retailer_items/Grains/grains_pages/grain_description.dart';
+import 'package:firstproject/retailer_items/Grains/grains_theme/grain_colors.dart';
 import 'package:line_icons/line_icons.dart';
 
 class GrainList extends StatefulWidget {
@@ -29,11 +28,11 @@ class _GrainListState extends State<GrainList> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Text(
-                "Vegetables",
+                "Grains",
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w500,
-                    color: Colors.lightBlueAccent),
+                    color: Colors.blue),
               ),
               Row(
                 children: const <Widget>[
