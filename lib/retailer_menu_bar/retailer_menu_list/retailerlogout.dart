@@ -43,7 +43,7 @@ class RetailerLogout extends StatelessWidget {
               label: const Text("No"),
               color: Colors.lightGreen,
               onPressed: () {
-                Navigator.pushNamed(context, 'retailerdrawer');
+                Navigator.pushNamed(context, 'Retailer_drawer_body');
               },
             ),
           ],

@@ -190,7 +190,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                   color: Colors.amber,
                                   onPressed: () {
                                     Navigator.pushNamed(
-                                        context, 'retailerdrawer');
+                                        context, 'Retailer_drawer_body');
                                   },
                                   icon: const Icon(Icons.arrow_forward),
                                 ),

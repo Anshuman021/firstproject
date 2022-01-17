@@ -154,7 +154,8 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                                 child: IconButton(
                                   color: Colors.yellow,
                                   onPressed: () {
-                                    Navigator.pushNamed(context, 'home');
+                                    Navigator.pushNamed(
+                                        context, 'farmer_drawer_body');
                                   },
                                   icon: const Icon(Icons.arrow_forward),
                                 ),

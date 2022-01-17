@@ -71,7 +71,8 @@ class _RetailerLoginState extends State<RetailerLogin> {
                         child: IconButton(
                           color: Colors.yellow,
                           onPressed: () {
-                            Navigator.pushNamed(context, 'retailerdrawer');
+                            Navigator.pushNamed(
+                                context, 'Retailer_drawer_body');
                           },
                           icon: const Icon(Icons.arrow_forward),
                         ),
