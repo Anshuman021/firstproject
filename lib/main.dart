@@ -17,6 +17,12 @@ import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/uti
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 //import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/farmer_themes.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/retailer_themes.dart';
+
+import 'package:firstproject/farmer_items/FarmerFlower/FarmerCreatingFlower.dart';
+import 'package:firstproject/farmer_items/FarmerFruit/FarmerCreatingFruit.dart';
+import 'package:firstproject/farmer_items/FarmerVegetable/FarmerCreatingVegetable.dart';
+import 'package:firstproject/farmer_items/FarmerGrain/FarmerCreatingGrain.dart';
+
 import 'package:flutter/services.dart';
 
 Future main() async {
@@ -49,7 +55,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (context) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const VerifyingUser(),
+          home: const FlowerList(),
           routes: {
             'verification': (context) => const VerifyingUser(),
             'login': (context) => const FarmerLogin(),
@@ -62,6 +68,11 @@ class MyApp extends StatelessWidget {
             'fruits_list': (context) => const FruitsList(),
             'grain_list': (context) => const GrainList(),
             'flower_list': (context) => const FlowerList(),
+            'FarmerCreatingFlower': (context) => const FarmerCreatingFlower(),
+            'FarmerCreatingFruit': (context) => const FarmerCreatingFruit(),
+            'FarmerCreatingVegetable': (context) =>
+                const FarmerCreatingVegetable(),
+            'FarmerCreatingGrain': (context) => const FarmerCreatingGrain(),
           },
         ),
       ),

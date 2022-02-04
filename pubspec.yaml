@@ -80,6 +80,7 @@ flutter:
   - assets/RetailerGrains/
   - assets/RetailerFlowers/
   - assets/farmerLoginSignUp/
+  - assets/FarmerHomePageButton/
   - assets/RetailerHomePageButton/
   - assets/RetailerLoginSIgnUp/
   # - images/a_dot_ham.jpeg

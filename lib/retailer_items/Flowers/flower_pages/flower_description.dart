@@ -101,7 +101,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                 Text(
                   widget.productdetail,
                   style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 10,
                       fontWeight: FontWeight.w500,
                       color: Colors.indigo),
                 )

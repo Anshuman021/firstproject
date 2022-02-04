@@ -16,7 +16,7 @@ List items = [
     "id": 2,
     "product": "Acacia",
     "productdetail":
-        " Acacia Contains: \n The flowers are usually\n yellow but occasionally white\n and have many stamens apiece\n, giving each one a fuzzy appearance.\n The fruits are legumes and are\n highly variable in appearance,\n depending on the species.\n Acacias are often confused\n with members of closely\n related genus Mimosa.\n Wattle tree (Acacia species).",
+        " Acacia Contains: \n The flowers are usually\n yellow but occasionally white\n and have many stamens apiece\n, giving each one a fuzzy \n appearance. The fruits are \n legumes and are highly \n variable in appearance,\n depending on the species. \n Acacias are often\n confused with members of \n closely related genus Mimosa.\n Wattle tree (Acacia species).",
     "img": "assets/RetailerFlowers/Acacia.jpg",
     "p_price": 90.00,
     "p_promotion_price": 40.00
@@ -34,7 +34,7 @@ List items = [
     "id": 4,
     "product": "Allium",
     "productdetail":
-        " Allium Contains: \n Allium is a genus of\n monocotyledonous flowering\n plants that includes hundreds of \nspecies, including the cultivated\n onion, garlic, scallion, shallot, leek, \n chives. The generic name Allium \n is the Latin word for garlic,\n and the type species for\n the genus is Allium sativum\n which means cultivated garlic",
+        " Allium Contains: \n Allium is a genus of\n monocotyledonous flowering\n plants that includes hundreds of \nspecies, including the cultivated\n onion, garlic, scallion, shallot,\n leek, chives. The generic name \nAllium is the Latin word for garlic,\n and the type species for\n the genus is Allium sativum\n which means cultivated garlic",
     "img": "assets/RetailerFlowers/Allium.jpg",
     "p_price": 97.00,
     "p_promotion_price": 60.00

@@ -9,6 +9,7 @@ import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/wid
 
 class FarmerProfilePage extends StatefulWidget {
   const FarmerProfilePage({Key? key}) : super(key: key);
+
   @override
   _FarmerProfilePageState createState() => _FarmerProfilePageState();
 }
