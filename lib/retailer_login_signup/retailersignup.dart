@@ -51,7 +51,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                           children: <Widget>[
                             TextFormField(
                                 controller: _nameController,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 22),
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -86,7 +87,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             ),
                             TextFormField(
                               controller: _emailController,
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                  color: Colors.amberAccent, fontSize: 22),
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -123,7 +125,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             ),
                             TextFormField(
                                 controller: _phonenoController,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 26),
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -163,7 +166,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             ),
                             TextFormField(
                               controller: _addressController,
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 22),
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -196,7 +200,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             ),
                             TextFormField(
                               controller: _passwordController,
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                  color: Colors.amberAccent, fontSize: 22),
                               obscureText: true,
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(

@@ -49,7 +49,8 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                           children: <Widget>[
                             TextFormField(
                                 controller: _nameController,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 22),
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -82,7 +83,8 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             ),
                             TextFormField(
                               controller: _emailController,
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 22),
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -118,7 +120,8 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             ),
                             TextFormField(
                                 controller: _phonenoController,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 22),
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -156,7 +159,8 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             ),
                             TextFormField(
                               controller: _passwordController,
-                              style: const TextStyle(color: Colors.white),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 22),
                               obscureText: true,
                               decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
