@@ -10,7 +10,7 @@ List items = [
         "Abutilon Contains:\nabutilon, (genus Abutilon),\ngenus of over 100\nspecies of herbaceous plants\nand partly woody\nshrubs of the mallow\nfamily (Malvaceae)\nnative to tropical\nand warm temperate areas.\nIt includes several species\nused as houseplants\nand in gardens for their\nwhite to deep orange,\nusually nodding,\nfive-petaled blossoms.",
     "img": "assets/RetailerFlowers/Abutilon.jpg",
     "p_price": 80.00,
-    "p_promotion_price": 55.00
+    "p_promotion_price": 55.00,
   },
   {
     "id": 2,

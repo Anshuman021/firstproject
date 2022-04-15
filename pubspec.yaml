@@ -36,6 +36,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   line_icons:
+
+
+  #Like Button
+  like_button: ^2.0.4
+  #slidable
+  flutter_slidable: ^1.2.0
   
   # Url_launcher
   url_launcher: ^6.0.18

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firstproject/retailer_items/Fruits/fruits_constant/fruits_data.dart';
 import 'package:firstproject/retailer_items/Fruits/fruits_pages/fruits_description.dart';
 import 'package:firstproject/retailer_items/Fruits/fruits_theme/fruits_colors.dart';
-
+import 'package:like_button/like_button.dart';
 import 'package:line_icons/line_icons.dart';
 
 class FruitsList extends StatefulWidget {
@@ -166,6 +166,12 @@ class _FruitsListState extends State<FruitsList> {
                                           fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
+                                    ),
+                                    const SizedBox(
+                                      width: 25,
+                                    ),
+                                    const LikeButton(
+                                      size: 25,
                                     ),
                                   ],
                                 )

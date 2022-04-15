@@ -3,6 +3,7 @@ import 'package:firstproject/retailer_items/Grains/grains_constant/grain_data.da
 import 'package:firstproject/retailer_items/Grains/grains_pages/grain_description.dart';
 import 'package:firstproject/retailer_items/Grains/grains_theme/grain_colors.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:like_button/like_button.dart';
 
 class GrainList extends StatefulWidget {
   const GrainList({Key? key}) : super(key: key);
@@ -165,6 +166,12 @@ class _GrainListState extends State<GrainList> {
                                           fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
+                                    ),
+                                    const SizedBox(
+                                      width: 30,
+                                    ),
+                                    const LikeButton(
+                                      size: 25,
                                     ),
                                   ],
                                 )

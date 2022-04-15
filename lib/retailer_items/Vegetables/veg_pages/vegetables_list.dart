@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firstproject/retailer_items/Vegetables/veg_constant/veg_data.dart';
 import 'package:firstproject/retailer_items/Vegetables/veg_pages/vegetable_description.dart';
 import 'package:firstproject/retailer_items/Vegetables/veg_theme/veg_colors.dart';
-
 import 'package:line_icons/line_icons.dart';
+import 'package:like_button/like_button.dart';
 
 class VegList extends StatefulWidget {
   const VegList({Key? key}) : super(key: key);
@@ -166,6 +166,12 @@ class _VegListState extends State<VegList> {
                                           fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
+                                    ),
+                                    const SizedBox(
+                                      width: 30,
+                                    ),
+                                    const LikeButton(
+                                      size: 25,
                                     ),
                                   ],
                                 )

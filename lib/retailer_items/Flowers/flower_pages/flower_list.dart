@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firstproject/retailer_items/Flowers/flower_constant/flower_data.dart';
 import 'package:firstproject/retailer_items/Flowers/flower_pages/flower_description.dart';
 import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
+import 'package:like_button/like_button.dart';
 import 'package:line_icons/line_icons.dart';
 
 class FlowerList extends StatefulWidget {
@@ -163,6 +164,12 @@ class _FlowerListState extends State<FlowerList> {
                                           fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
+                                    ),
+                                    const SizedBox(
+                                      width: 30,
+                                    ),
+                                    const LikeButton(
+                                      size: 25,
                                     ),
                                   ],
                                 )
