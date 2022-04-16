@@ -138,6 +138,12 @@ class _VegListState extends State<VegList> {
                                       fontWeight: FontWeight.w500),
                                 ),
                                 const SizedBox(
+                                  width: 30,
+                                ),
+                                const LikeButton(
+                                  size: 25,
+                                ),
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Row(
@@ -166,12 +172,6 @@ class _VegListState extends State<VegList> {
                                           fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
-                                    ),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
-                                    const LikeButton(
-                                      size: 25,
                                     ),
                                   ],
                                 )

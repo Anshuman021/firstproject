@@ -9,12 +9,12 @@ class DefaultRetailer {
   static const _keyUser = 'user';
   static const myUser = User(
     imagePath:
-        'https://tse1.mm.bing.net/th?id=OIP.iPT2f-NkI6nwmeMnV_YazAHaHa&pid=Api&P=0&w=175&h=175',
+        "https://cdn0.iconfinder.com/data/icons/messenger/154/avatar-login-human-man-user-sign-label-512.png",
     name: 'Anshuman',
     email: 'anshuman@gmail.com',
     mobilenumber: '1234567890',
     address:
-        'Jan Path, Jaipur Nagar Nigam, Lalkothi, Jaipur, Rajasthan 302016 ,Established: 1969 ,Capacity: 23,185 ',
+        'Jan Path Jaipur Nagar Nigam Lalkothi Jaipur Rajasthan 302016 Established 1969 Capacity 23 185 ',
     isDarkMode: false,
   );
 

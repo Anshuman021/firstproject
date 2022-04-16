@@ -138,6 +138,12 @@ class _FruitsListState extends State<FruitsList> {
                                       fontWeight: FontWeight.w500),
                                 ),
                                 const SizedBox(
+                                  width: 20,
+                                ),
+                                const LikeButton(
+                                  size: 25,
+                                ),
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Row(
@@ -166,12 +172,6 @@ class _FruitsListState extends State<FruitsList> {
                                           fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
-                                    ),
-                                    const SizedBox(
-                                      width: 25,
-                                    ),
-                                    const LikeButton(
-                                      size: 25,
                                     ),
                                   ],
                                 )

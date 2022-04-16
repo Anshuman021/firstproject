@@ -19,12 +19,10 @@ class VerifyingUser extends StatelessWidget {
           children: [
             RaisedButton.icon(
               icon: const Icon(Icons.person),
-              label: const Text("As a Farmer"),
-              color: Colors.lightBlueAccent,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30))),
+              label: const Text("As a Retailer"),
+              color: Colors.amberAccent,
               onPressed: () {
-                Navigator.pushNamed(context, 'register');
+                Navigator.pushNamed(context, 'retailersignup');
               },
             ),
             const SizedBox(
@@ -32,10 +30,12 @@ class VerifyingUser extends StatelessWidget {
             ),
             RaisedButton.icon(
               icon: const Icon(Icons.person),
-              label: const Text("As a Retailer"),
-              color: Colors.amberAccent,
+              label: const Text("As a Farmer"),
+              color: Colors.lightBlueAccent,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(30))),
               onPressed: () {
-                Navigator.pushNamed(context, 'retailersignup');
+                Navigator.pushNamed(context, 'register');
               },
             ),
           ],
