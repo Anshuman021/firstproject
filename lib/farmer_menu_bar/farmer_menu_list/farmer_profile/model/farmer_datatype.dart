@@ -1,46 +1,46 @@
-class User {
-  final String imagePath;
-  final String name;
-  final String email;
-  final String mobilenumber;
+class FarmerUser {
+  final String F_image;
+  final String F_name;
+  final String F_email;
+  final String F_mobilenumber;
   final bool isDarkMode;
 
-  const User({
-    required this.imagePath,
-    required this.name,
-    required this.email,
-    required this.mobilenumber,
+  const FarmerUser({
+    required this.F_image,
+    required this.F_name,
+    required this.F_email,
+    required this.F_mobilenumber,
     required this.isDarkMode,
   });
 
-  User copy({
-    String? imagePath,
-    String? name,
-    String? email,
-    String? mobilenumber,
+  FarmerUser copy({
+    String? F_image,
+    String? F_name,
+    String? F_email,
+    String? F_mobilenumber,
     bool? isDarkMode,
   }) =>
-      User(
-        imagePath: imagePath ?? this.imagePath,
-        name: name ?? this.name,
-        email: email ?? this.email,
-        mobilenumber: mobilenumber ?? this.mobilenumber,
+      FarmerUser(
+        F_image: F_image ?? this.F_image,
+        F_name: F_name ?? this.F_name,
+        F_email: F_email ?? this.F_email,
+        F_mobilenumber: F_mobilenumber ?? this.F_mobilenumber,
         isDarkMode: isDarkMode ?? this.isDarkMode,
       );
 
-  static User fromJson(Map<String, dynamic> json) => User(
-        imagePath: json['imagePath'],
-        name: json['name'],
-        email: json['email'],
-        mobilenumber: json['mobilenumber'],
+  static FarmerUser fromJson(Map<String, dynamic> json) => FarmerUser(
+        F_image: json['imagePath'],
+        F_name: json['name'],
+        F_email: json['email'],
+        F_mobilenumber: json['mobilenumber'],
         isDarkMode: json['isDarkMode'],
       );
 
   Map<String, dynamic> toJson() => {
-        'imagePath': imagePath,
-        'name': name,
-        'email': email,
-        'mobilenumber': mobilenumber,
+        'imagePath': F_image,
+        'name': F_name,
+        'email': F_email,
+        'mobilenumber': F_mobilenumber,
         'isDarkMode': isDarkMode,
       };
 }

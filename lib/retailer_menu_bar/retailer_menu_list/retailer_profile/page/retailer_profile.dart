@@ -51,17 +51,17 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
     );
   }
 
-  Widget buildName(User user) => Column(
+  Widget buildName(RetailerUser user) => Column(
         children: [
           Text(
             user.name,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           const SizedBox(height: 4),
-          Text(
-            user.email,
-            style: const TextStyle(color: Colors.deepPurple, fontSize: 18),
-          ),
+          // Text(
+          //   user.email,
+          //   style: const TextStyle(color: Colors.deepPurple, fontSize: 18),
+          // ),
         ],
       );
 
@@ -70,7 +70,7 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
         onClicked: () {},
       );
 
-  Widget buildAbout(User user) => Container(
+  Widget buildAbout(RetailerUser user) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 48),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,17 +83,18 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
             Text(
               user.mobilenumber,
               style: const TextStyle(
-                  fontSize: 16, height: 1.4, color: Colors.deepPurple),
+                  fontSize: 18, height: 1.4, color: Colors.deepPurple),
             ),
             const SizedBox(height: 16),
             const Text(
-              'Address',
+              'Email',
               style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 14),
             Text(
-              user.address,
-              style: const TextStyle(fontSize: 14, height: 1.4),
+              user.email,
+              style: const TextStyle(
+                  fontSize: 18, color: Colors.deepPurple, height: 1.4),
             ),
           ],
         ),

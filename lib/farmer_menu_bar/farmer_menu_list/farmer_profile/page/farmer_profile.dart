@@ -27,7 +27,7 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
             physics: const BouncingScrollPhysics(),
             children: [
               ProfileWidget(
-                imagePath: user.imagePath,
+                imagePath: user.F_image,
                 onClicked: () async {
                   await Navigator.of(context).push(
                     MaterialPageRoute(
@@ -51,10 +51,10 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
     );
   }
 
-  Widget buildName(User user) => Column(
+  Widget buildName(FarmerUser user) => Column(
         children: [
           Text(
-            user.name,
+            user.F_name,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           const SizedBox(height: 4),
@@ -66,7 +66,7 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
         onClicked: () {},
       );
 
-  Widget buildAbout(User user) => Container(
+  Widget buildAbout(FarmerUser user) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 48),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +77,7 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
             ),
             const SizedBox(height: 6),
             Text(
-              user.email,
+              user.F_email,
               style: const TextStyle(
                   fontSize: 16, height: 1.4, color: Colors.deepPurple),
             ),
@@ -88,7 +88,7 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
             ),
             const SizedBox(height: 6),
             Text(
-              user.mobilenumber,
+              user.F_mobilenumber,
               style: const TextStyle(
                   fontSize: 16, height: 1.4, color: Colors.deepPurple),
             ),

@@ -20,7 +20,7 @@ class RetailerEditProfilePage extends StatefulWidget {
 }
 
 class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
-  late User user;
+  late RetailerUser user;
 
   @override
   void initState() {
@@ -78,13 +78,13 @@ class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
                       user = user.copy(mobilenumber: mobilenumber),
                 ),
                 const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Address',
-                  text: user.address,
-                  maxLines: 5,
-                  onChanged: (address) => user = user.copy(address: address),
-                ),
-                const SizedBox(height: 24),
+                // TextFieldWidget(
+                //   label: 'Address',
+                //   text: user.address,
+                //   maxLines: 5,
+                //   onChanged: (address) => user = user.copy(address: address),
+                // ),
+                // const SizedBox(height: 24),
                 ButtonWidget(
                   text: 'Update Profile',
                   onClicked: () {

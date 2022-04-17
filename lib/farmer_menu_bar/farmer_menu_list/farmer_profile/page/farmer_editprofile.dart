@@ -19,7 +19,7 @@ class FarmerEditProfilePage extends StatefulWidget {
 }
 
 class _FarmerEditProfilePageState extends State<FarmerEditProfilePage> {
-  late User user;
+  late FarmerUser user;
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _FarmerEditProfilePageState extends State<FarmerEditProfilePage> {
               physics: const BouncingScrollPhysics(),
               children: [
                 ProfileWidget(
-                  imagePath: user.imagePath,
+                  imagePath: user.F_image,
                   isEdit: true,
                   onClicked: () async {
                     final image = await ImagePicker()
@@ -53,28 +53,28 @@ class _FarmerEditProfilePageState extends State<FarmerEditProfilePage> {
                     final newImage =
                         await File(image.path).copy(imageFile.path);
 
-                    setState(() => user = user.copy(imagePath: newImage.path));
+                    setState(() => user = user.copy(F_image: newImage.path));
                   },
                 ),
                 const SizedBox(height: 24),
                 TextFieldWidget(
                   label: 'Full Name',
-                  text: user.name,
-                  onChanged: (name) => user = user.copy(name: name),
+                  text: user.F_name,
+                  onChanged: (name) => user = user.copy(F_name: name),
                 ),
                 const SizedBox(height: 24),
                 TextFieldWidget(
                   label: 'Email',
-                  text: user.email,
-                  onChanged: (email) => user = user.copy(email: email),
+                  text: user.F_email,
+                  onChanged: (email) => user = user.copy(F_email: email),
                 ),
                 const SizedBox(height: 24),
                 TextFieldWidget(
                   label: 'Mobile Number',
-                  text: user.mobilenumber,
+                  text: user.F_mobilenumber,
                   maxLines: 1,
                   onChanged: (mobilenumber) =>
-                      user = user.copy(mobilenumber: mobilenumber),
+                      user = user.copy(F_mobilenumber: mobilenumber),
                 ),
                 const SizedBox(height: 24),
                 //const SizedBox(height: 24),
