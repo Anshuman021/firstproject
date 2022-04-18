@@ -31,7 +31,7 @@ class _FarmerLoginState extends State<FarmerLogin> {
               padding: const EdgeInsets.only(left: 35, top: 130),
               child: const Text(
                 'Welcome, Please Login Here !',
-                style: TextStyle(color: Colors.black, fontSize: 28),
+                style: TextStyle(color: Colors.black, fontSize: 24),
               ),
             ),
             SingleChildScrollView(
@@ -134,7 +134,7 @@ class _FarmerLoginState extends State<FarmerLogin> {
                                 style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 24,
-                                  color: Colors.lightBlueAccent,
+                                  color: Colors.black,
                                 )))
                       ],
                     )

@@ -1,5 +1,6 @@
 //import 'dart:html';
 
+import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
 import 'package:flutter/material.dart';
 
 class FarmerSignUp extends StatefulWidget {
@@ -31,7 +32,7 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
               padding: const EdgeInsets.only(left: 35, top: 130),
               child: const Text(
                 'Create Your Account Here!',
-                style: TextStyle(color: Colors.black, fontSize: 30),
+                style: TextStyle(color: Colors.black, fontSize: 25),
               ),
             ),
             SingleChildScrollView(
@@ -50,8 +51,10 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             TextFormField(
                                 controller: _nameController,
                                 style: const TextStyle(
-                                    color: Colors.white, fontSize: 22),
+                                    color: Colors.blueAccent, fontSize: 22),
                                 decoration: InputDecoration(
+                                    fillColor: Colors.lime.shade100,
+                                    filled: true,
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: const BorderSide(
@@ -84,8 +87,10 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             TextFormField(
                               controller: _emailController,
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 22),
+                                  color: Colors.blueAccent, fontSize: 22),
                               decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
@@ -121,8 +126,10 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             TextFormField(
                                 controller: _phonenoController,
                                 style: const TextStyle(
-                                    color: Colors.white, fontSize: 22),
+                                    color: Colors.blueAccent, fontSize: 22),
                                 decoration: InputDecoration(
+                                    fillColor: Colors.lime.shade100,
+                                    filled: true,
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: const BorderSide(
@@ -160,9 +167,11 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                             TextFormField(
                               controller: _passwordController,
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 22),
+                                  color: Colors.blueAccent, fontSize: 22),
                               obscureText: true,
                               decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(

@@ -11,7 +11,7 @@ class RetailerSignUp extends StatefulWidget {
 
 class _RetailerSignUpState extends State<RetailerSignUp> {
   TextEditingController _nameController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
+  // TextEditingController _addressController = TextEditingController();
   TextEditingController _phonenoController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -33,7 +33,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
               padding: const EdgeInsets.only(left: 35, top: 130),
               child: const Text(
                 'Create Your Account Here!',
-                style: TextStyle(color: Colors.black, fontSize: 29),
+                style: TextStyle(color: Colors.black, fontSize: 25),
               ),
             ),
             SingleChildScrollView(
@@ -54,6 +54,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                 style: const TextStyle(
                                     color: Colors.black, fontSize: 22),
                                 decoration: InputDecoration(
+                                    fillColor: Colors.lime.shade100,
+                                    filled: true,
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: const BorderSide(
@@ -66,9 +68,9 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                         color: Colors.pink,
                                       ),
                                     ),
-                                    hintText: "Name",
+                                    hintText: "Enter Name",
                                     hintStyle: const TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.purpleAccent,
                                       fontSize: 18,
                                     ),
                                     border: OutlineInputBorder(
@@ -88,8 +90,10 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             TextFormField(
                               controller: _emailController,
                               style: const TextStyle(
-                                  color: Colors.amberAccent, fontSize: 22),
+                                  color: Colors.black, fontSize: 22),
                               decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide:
@@ -101,9 +105,9 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                       color: Colors.pink,
                                     ),
                                   ),
-                                  hintText: "Email",
+                                  hintText: "Enter Email",
                                   hintStyle: const TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.purpleAccent,
                                     fontSize: 18,
                                   ),
                                   border: OutlineInputBorder(
@@ -128,6 +132,8 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                 style: const TextStyle(
                                     color: Colors.black, fontSize: 26),
                                 decoration: InputDecoration(
+                                    fillColor: Colors.lime.shade100,
+                                    filled: true,
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       borderSide: const BorderSide(
@@ -140,9 +146,9 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                         color: Colors.pink,
                                       ),
                                     ),
-                                    hintText: "Phone Number",
+                                    hintText: "Enter Phone Number",
                                     hintStyle: const TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.purpleAccent,
                                       fontSize: 18,
                                     ),
                                     border: OutlineInputBorder(
@@ -164,46 +170,48 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             const SizedBox(
                               height: 30,
                             ),
-                            TextFormField(
-                              controller: _addressController,
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 22),
-                              decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: Colors.pink,
-                                    ),
-                                  ),
-                                  hintText: "Address",
-                                  hintStyle: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  )),
-                              validator: (val) {
-                                if (val!.isEmpty) {
-                                  return "Please Enter The Address";
-                                }
-                              },
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
+                            // TextFormField(
+                            //   controller: _addressController,
+                            //   style: const TextStyle(
+                            //       color: Colors.black, fontSize: 22),
+                            //   decoration: InputDecoration(
+                            //       enabledBorder: OutlineInputBorder(
+                            //         borderRadius: BorderRadius.circular(10),
+                            //         borderSide: const BorderSide(
+                            //           color: Colors.black,
+                            //         ),
+                            //       ),
+                            //       focusedBorder: OutlineInputBorder(
+                            //         borderRadius: BorderRadius.circular(10),
+                            //         borderSide: const BorderSide(
+                            //           color: Colors.pink,
+                            //         ),
+                            //       ),
+                            //       hintText: "Address",
+                            //       hintStyle: const TextStyle(
+                            //         color: Colors.black,
+                            //         fontSize: 18,
+                            //       ),
+                            //       border: OutlineInputBorder(
+                            //         borderRadius: BorderRadius.circular(10),
+                            //       )),
+                            //   validator: (val) {
+                            //     if (val!.isEmpty) {
+                            //       return "Please Enter The Address";
+                            //     }
+                            //   },
+                            // ),
+                            // const SizedBox(
+                            //   height: 30,
+                            // ),
                             TextFormField(
                               controller: _passwordController,
                               style: const TextStyle(
-                                  color: Colors.amberAccent, fontSize: 22),
+                                  color: Colors.black, fontSize: 22),
                               obscureText: true,
                               decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
@@ -216,9 +224,9 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                       color: Colors.pink,
                                     ),
                                   ),
-                                  hintText: "Password",
+                                  hintText: "Enter Password",
                                   hintStyle: const TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.purpleAccent,
                                     fontSize: 18,
                                   ),
                                   border: OutlineInputBorder(
@@ -248,14 +256,14 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                               children: [
                                 const Text('Sign Up',
                                     style: TextStyle(
-                                        color: Colors.amber,
+                                        color: Colors.amberAccent,
                                         fontSize: 27,
                                         fontWeight: FontWeight.w700)),
                                 CircleAvatar(
                                   radius: 30,
                                   backgroundColor: const Color(0xff4c505b),
                                   child: IconButton(
-                                    color: Colors.amber,
+                                    color: Colors.amberAccent,
                                     onPressed: () {
                                       if (_formkey.currentState!.validate()) {
                                         Navigator.pushNamed(
@@ -283,7 +291,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       decoration: TextDecoration.underline,
-                                      color: Colors.white,
+                                      color: Colors.deepPurpleAccent,
                                       fontSize: 26,
                                     ),
                                   ),

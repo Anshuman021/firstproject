@@ -18,7 +18,7 @@ class _RetailerLoginState extends State<RetailerLogin> {
       decoration: const BoxDecoration(
           image: DecorationImage(
               image:
-                  AssetImage('assets/RetailerLoginSIgnUp/retailer_login.jpg'),
+                  AssetImage('assets/RetailerLoginSIgnUp/login_retailer.jpg'),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -56,7 +56,7 @@ class _RetailerLoginState extends State<RetailerLogin> {
                         }
                       },
                       decoration: InputDecoration(
-                          fillColor: Colors.grey.shade100,
+                          fillColor: Colors.lightBlue.shade100,
                           filled: true,
                           hintText: "Email",
                           border: OutlineInputBorder(
@@ -69,7 +69,7 @@ class _RetailerLoginState extends State<RetailerLogin> {
                       controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                          fillColor: Colors.grey.shade100,
+                          fillColor: Colors.lightBlue.shade100,
                           filled: true,
                           hintText: "Password",
                           helperText: "Include !@# for strong password",
@@ -99,14 +99,14 @@ class _RetailerLoginState extends State<RetailerLogin> {
                       children: [
                         const Text('SIGN IN',
                             style: TextStyle(
-                                color: Colors.yellow,
+                                color: Colors.purple,
                                 fontSize: 27,
                                 fontWeight: FontWeight.w700)),
                         CircleAvatar(
                           radius: 30,
                           backgroundColor: const Color(0xff4c505b),
                           child: IconButton(
-                            color: Colors.yellow,
+                            color: Colors.purpleAccent,
                             onPressed: () {
                               if (_formkey.currentState!.validate()) {
                                 Navigator.pushNamed(
@@ -132,7 +132,7 @@ class _RetailerLoginState extends State<RetailerLogin> {
                                 style: TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 25,
-                                  color: Colors.greenAccent,
+                                  color: Colors.black,
                                 )))
                       ],
                     )
