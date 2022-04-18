@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   line_icons:
 
+  #Email Authentication
+  email_auth: ^1.0.0
+
 
   #Like Button
   like_button: ^2.0.4

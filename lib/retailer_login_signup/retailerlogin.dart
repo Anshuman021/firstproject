@@ -1,4 +1,8 @@
+//import 'dart:html';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:email_auth/email_auth.dart';
 
 class RetailerLogin extends StatefulWidget {
   const RetailerLogin({Key? key}) : super(key: key);
@@ -10,7 +14,109 @@ class RetailerLogin extends StatefulWidget {
 class _RetailerLoginState extends State<RetailerLogin> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _otpController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+  // Declare the object
+  late EmailAuth emailAuth;
+
+  @override
+  void initState() {
+    super.initState();
+
+    emailAuth = EmailAuth(
+      sessionName: "OTP for Retailer",
+    );
+  }
+
+  void sendOtp() async {
+    //EmailAuth emailAuth = EmailAuth(sessionName: "Testing session");
+    var res = await emailAuth.sendOtp(
+        recipientMail: _emailController.value.text, otpLength: 4);
+    if (res) {
+      // print("OTP sent");
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP Sent Successfully !"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    } else {
+      // print("otp not sent");
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP Not sent"),
+              content: const Text(
+                  "Error due to the Invalid Email please re-enter email"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    }
+  }
+
+  void verifyOTP() {
+    var res = emailAuth.validateOtp(
+        recipientMail: _emailController.value.text,
+        userOtp: _otpController.text);
+    if (res) {
+      // print("OTP verified");
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP Verified"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    } else {
+      // print("NOT valid otp");
+
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP"),
+              content: const Text("Incorrect OTP"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +134,7 @@ class _RetailerLoginState extends State<RetailerLogin> {
               padding: const EdgeInsets.only(left: 35, top: 130),
               child: const Text(
                 'Please Login Here!',
-                style: TextStyle(color: Colors.black, fontSize: 34),
+                style: TextStyle(color: Colors.black, fontSize: 26),
               ),
             ),
             SingleChildScrollView(
@@ -59,8 +165,42 @@ class _RetailerLoginState extends State<RetailerLogin> {
                           fillColor: Colors.lightBlue.shade100,
                           filled: true,
                           hintText: "Email",
+                          suffixIcon: TextButton(
+                            child: const Text("send OTP"),
+                            onPressed: () => sendOtp(),
+                          ),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      controller: _otpController,
+                      keyboardType: TextInputType.number,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          fillColor: Colors.lightBlue.shade100,
+                          filled: true,
+                          hintText: "Enter OTP",
+                          suffixIcon: TextButton(
+                            child: const Text("Verify OTP"),
+                            onPressed: () => verifyOTP(),
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "Please Enter The OTP";
+                        }
+                        if (val.length < 6) {
+                          return "Enter 6 Digit OTP and verify";
+                        }
+
+                        if (val.length > 6) {
+                          return "Enter 6 Digit OTP and verify";
+                        }
+                      },
                     ),
                     const SizedBox(
                       height: 20,
@@ -90,6 +230,9 @@ class _RetailerLoginState extends State<RetailerLogin> {
                           return "One Special Character Needed";
                         }
                       },
+                    ),
+                    const SizedBox(
+                      height: 20,
                     ),
                     const SizedBox(
                       height: 20,
