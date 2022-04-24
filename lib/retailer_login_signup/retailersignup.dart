@@ -10,11 +10,11 @@ class RetailerSignUp extends StatefulWidget {
 }
 
 class _RetailerSignUpState extends State<RetailerSignUp> {
-  TextEditingController _nameController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   // TextEditingController _addressController = TextEditingController();
-  TextEditingController _phonenoController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _phonenoController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
   @override

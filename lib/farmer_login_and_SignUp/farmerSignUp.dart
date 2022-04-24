@@ -1,6 +1,6 @@
 //import 'dart:html';
 
-import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
+// import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
 import 'package:flutter/material.dart';
 
 class FarmerSignUp extends StatefulWidget {
@@ -11,10 +11,10 @@ class FarmerSignUp extends StatefulWidget {
 }
 
 class _FarmerSignUpState extends State<FarmerSignUp> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _phonenoController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phonenoController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
   @override

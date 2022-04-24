@@ -98,7 +98,7 @@ class _FlowerListState extends State<FlowerList> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => VegetableDescription(
+                                builder: (_) => FlowerDescription(
                                       id: items[index]['id'],
                                       product: items[index]['product'],
                                       img: items[index]['img'],

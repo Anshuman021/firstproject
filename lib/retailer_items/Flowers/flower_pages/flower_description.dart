@@ -1,10 +1,12 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 // import 'package:firstproject/retailer_items/Flowers/flower_constant/flower_data.dart';
 import 'package:firstproject/retailer_items/Flowers/flower_theme/flower_colors.dart';
-import 'package:like_button/like_button.dart';
+// import 'package:like_button/like_button.dart';
 import 'package:line_icons/line_icons.dart';
 
-class VegetableDescription extends StatefulWidget {
+class FlowerDescription extends StatefulWidget {
   final int id;
   final String product;
   final String img;
@@ -12,7 +14,7 @@ class VegetableDescription extends StatefulWidget {
   final String pPrice;
   final String pPromotionPrice;
   // ignore: use_key_in_widget_constructors
-  const VegetableDescription(
+  const FlowerDescription(
       {required this.id,
       required this.product,
       required this.img,
@@ -20,10 +22,10 @@ class VegetableDescription extends StatefulWidget {
       required this.pPrice,
       required this.pPromotionPrice});
   @override
-  _VegetableDescriptionState createState() => _VegetableDescriptionState();
+  _FlowerDescriptionState createState() => _FlowerDescriptionState();
 }
 
-class _VegetableDescriptionState extends State<VegetableDescription> {
+class _FlowerDescriptionState extends State<FlowerDescription> {
   int qty = 1;
   @override
   Widget build(BuildContext context) {
@@ -251,7 +253,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

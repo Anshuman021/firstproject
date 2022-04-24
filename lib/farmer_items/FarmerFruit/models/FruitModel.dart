@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class User {
   final String fruitname;
   final String fruitdesc;

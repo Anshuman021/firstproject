@@ -12,9 +12,9 @@ class RetailerLogin extends StatefulWidget {
 }
 
 class _RetailerLoginState extends State<RetailerLogin> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _otpController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _otpController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   // Declare the object
   late EmailAuth emailAuth;
