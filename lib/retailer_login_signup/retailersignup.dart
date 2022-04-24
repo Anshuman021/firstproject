@@ -1,6 +1,8 @@
 //import 'dart:html';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:email_auth/email_auth.dart';
 
 class RetailerSignUp extends StatefulWidget {
   const RetailerSignUp({Key? key}) : super(key: key);
@@ -14,8 +16,108 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
   // TextEditingController _addressController = TextEditingController();
   final TextEditingController _phonenoController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _otpController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+  late EmailAuth emailAuth;
+  @override
+  void initState() {
+    super.initState();
+
+    emailAuth = EmailAuth(
+      sessionName: "OTP for Retailer",
+    );
+  }
+
+  void sendOtp() async {
+    //EmailAuth emailAuth = EmailAuth(sessionName: "Testing session");
+    var res = await emailAuth.sendOtp(
+        recipientMail: _emailController.value.text, otpLength: 4);
+    if (res) {
+      // print("OTP sent");
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP Sent Successfully !"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    } else {
+      // print("otp not sent");
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP Not sent"),
+              content: const Text(
+                  "Error due to the Invalid Email please re-enter email"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    }
+  }
+
+  void verifyOTP() {
+    var res = emailAuth.validateOtp(
+        recipientMail: _emailController.value.text,
+        userOtp: _otpController.text);
+    if (res) {
+      // print("OTP verified");
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP Verified"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    } else {
+      // print("NOT valid otp");
+
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) {
+            return CupertinoAlertDialog(
+              title: const Text("OTP"),
+              content: const Text("Incorrect OTP"),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text("OK"),
+                ),
+              ],
+            );
+          });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,6 +212,10 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                     color: Colors.purpleAccent,
                                     fontSize: 18,
                                   ),
+                                  suffixIcon: TextButton(
+                                    child: const Text("send OTP"),
+                                    onPressed: () => sendOtp(),
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   )),
@@ -121,6 +227,40 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                 if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
                                     .hasMatch(val)) {
                                   return "Incorrect Email";
+                                }
+                              },
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            TextFormField(
+                              controller: _otpController,
+                              keyboardType: TextInputType.number,
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
+                                  hintText: "Enter OTP",
+                                  hintStyle: const TextStyle(
+                                    color: Colors.purpleAccent,
+                                    fontSize: 18,
+                                  ),
+                                  suffixIcon: TextButton(
+                                    child: const Text("Verify OTP"),
+                                    onPressed: () => verifyOTP(),
+                                  ),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                              validator: (val) {
+                                if (val!.isEmpty) {
+                                  return "Please Enter The OTP";
+                                }
+                                if (val.length < 6) {
+                                  return "Enter 6 Digit OTP and verify";
+                                }
+
+                                if (val.length > 6) {
+                                  return "Enter 6 Digit OTP and verify";
                                 }
                               },
                             ),
