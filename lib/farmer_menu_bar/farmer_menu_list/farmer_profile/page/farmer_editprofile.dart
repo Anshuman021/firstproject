@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -11,6 +12,7 @@ import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/wid
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_profile_widget.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/widget/f_textfield_widget.dart';
 import 'package:path/path.dart';
+// import 'package:email_auth/email_auth.dart';
 
 class FarmerEditProfilePage extends StatefulWidget {
   const FarmerEditProfilePage({Key? key}) : super(key: key);
@@ -19,14 +21,115 @@ class FarmerEditProfilePage extends StatefulWidget {
 }
 
 class _FarmerEditProfilePageState extends State<FarmerEditProfilePage> {
+  // final TextEditingController _nameController = TextEditingController();
+  // final TextEditingController _emailController = TextEditingController();
+  // final TextEditingController _otpController = TextEditingController();
+  // final TextEditingController _phonenoController = TextEditingController();
+  // final _formkey = GlobalKey<FormState>();
+  // late EmailAuth emailAuth;
   late FarmerUser user;
 
   @override
   void initState() {
     super.initState();
 
+    // emailAuth = EmailAuth(
+    //   sessionName: "OTP for Retailer",
+    // );
+
     user = DefaultFarmer.getUser();
   }
+
+  // void sendOtp() async {
+  //   //EmailAuth emailAuth = EmailAuth(sessionName: "Testing session");
+  //   var res = await emailAuth.sendOtp(
+  //       recipientMail: _emailController.value.text, otpLength: 4);
+  //   if (res) {
+  //     // print("OTP sent");
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: this.context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP Sent Successfully !"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   } else {
+  //     // print("otp not sent");
+  //     showDialog(
+  //       barrierDismissible: false,
+  //       context: this.context,
+  //       builder: (BuildContext context) {
+  //         return CupertinoAlertDialog(
+  //           title: const Text("OTP Not sent"),
+  //           content: const Text(
+  //               "Error due to the Invalid Email please re-enter email"),
+  //           actions: [
+  //             CupertinoDialogAction(
+  //               onPressed: () {
+  //                 Navigator.pop(context);
+  //               },
+  //               child: const Text("OK"),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
+
+  // void verifyOTP() {
+  //   var res = emailAuth.validateOtp(
+  //       recipientMail: _emailController.value.text,
+  //       userOtp: _otpController.text);
+  //   if (res) {
+  //     // print("OTP verified");
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: this.context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP Verified"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   } else {
+  //     // print("NOT valid otp");
+
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: this.context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP"),
+  //             content: const Text("Incorrect OTP"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) => ThemeSwitchingArea(
@@ -57,6 +160,7 @@ class _FarmerEditProfilePageState extends State<FarmerEditProfilePage> {
                   },
                 ),
                 const SizedBox(height: 24),
+
                 TextFieldWidget(
                   label: 'Full Name',
                   text: user.F_name,

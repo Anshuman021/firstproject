@@ -140,7 +140,7 @@ class _VegetableDescriptionState extends State<VegetableDescription> {
                     Text(
                       " ₹ " + widget.pPrice + " / Kg ",
                       style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: warning,
                           decoration: TextDecoration.lineThrough),

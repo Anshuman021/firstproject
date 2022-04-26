@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (context) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const VerifyingUser(),
+          home: const FlowerList(),
           routes: {
             'verification': (context) => const VerifyingUser(),
             'login': (context) => const FarmerLogin(),

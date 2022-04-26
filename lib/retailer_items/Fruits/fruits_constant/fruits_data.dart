@@ -61,7 +61,7 @@ List items = [
     "id": 7,
     "product": "Guava",
     "productdetail":
-        " Guava Contains:\n Calories: 37,\n Fat: 1 gram,\n Cholesterol: 0 milligrams,\n Sodium: 1 milligram,\n Carbohydrates: 8 grams,\n Fiber: 3 grams,\n Sugar: 5 grams",
+        " Guava Contains:\n Calories: 37,\n Fat: 1 gram,\n Cholesterol: 0\nmilligrams,\n Sodium: 1 milligram,\n Carbohydrates: 8\ngrams,\n Fiber: 3 grams,\n Sugar: 5 grams",
     "img": "assets/RetailerFruits/Guava.JPG",
     "p_price": 120.00,
     "p_promotion_price": 70.00
@@ -115,7 +115,7 @@ List items = [
     "id": 13,
     "product": "Pomegranate",
     "productdetail":
-        " Pomegranate Contains:\n 72 calories,\n 27g carbohydrates,\n 89g sugar,\n 5g fiber,\n 205mg potassium,\n 9mg vitamin C,\n 3mg vitamin K,\n 33µg folate",
+        "Pomegranate\nContains:\n72 calories,\n27g carbohydrates,\n89g sugar,\n5g fiber,\n205mg potassium,\n9mg vitamin C,\n3mg vitamin K,\n33µg folate",
     "img": "assets/RetailerFruits/Pomegranate.JPG",
     "p_price": 120.00,
     "p_promotion_price": 75.00

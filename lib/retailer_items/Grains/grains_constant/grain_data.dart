@@ -7,7 +7,7 @@ List items = [
     "id": 1,
     "product": "YardLongBean",
     "productdetail":
-        " YardLongBean Contains: \n Vitamin C	31%,\n Calcium	5%,\n Iron 2%,\n	Vitamin D	0%,\n Vitamin B6 0%,\n Cobalamin	0%,\n Magnesium	11%",
+        " YardLongBean\n Contains: \n Vitamin C	31%,\n Calcium	5%,\n Iron 2%,\n	Vitamin D	0%,\n Vitamin B6 0%,\n Cobalamin	0%,\n Magnesium	11%",
     "img": "assets/RetailerGrains/YardLongBean.png",
     "p_price": 80.00,
     "p_promotion_price": 55.00
@@ -34,7 +34,7 @@ List items = [
     "id": 4,
     "product": "PumpkinSeed",
     "productdetail":
-        " PumpkinSeed Contains: \n Fiber: 1.7g,\n Carbs: 5g,\n Protein: 7g,\n Fat: 13g,\n Vitamin K: 18% RDI,\n Phosphorus: 33% RDI,\n Manganese: 42% RDI,\n Magnesium: 37% RDI",
+        " PumpkinSeed\nContains: \n Fiber: 1.7g,\n Carbs: 5g,\n Protein: 7g,\n Fat: 13g,\n Vitamin K: 18% RDI,\n Phosphorus: 33% RDI,\n Manganese: 42% RDI,\n Magnesium: 37% RDI",
     "img": "assets/RetailerGrains/PumpkinSeed.png",
     "p_price": 69.00,
     "p_promotion_price": 30.00
@@ -97,7 +97,7 @@ List items = [
     "id": 11,
     "product": "CranberryBean",
     "productdetail":
-        " CranberryBean Contains:\nCalories: 136,\n Fat: 0.5g,\n Sodium: 1mg,\n Carbohydrates: 24.5,\n Fiber: 8.6g,\n Sugars: 0g,\n Protein: 9.3g",
+        " CranberryBean\n Contains:\n Calories: 136,\n Fat: 0.5g,\n Sodium: 1mg,\n Carbohydrates: 24.5,\n Fiber: 8.6g,\n Sugars: 0g,\n Protein: 9.3g",
     "img": "assets/RetailerGrains/cranberryBean.png",
     "p_price": 100.00,
     "p_promotion_price": 75.00
@@ -115,7 +115,7 @@ List items = [
     "id": 13,
     "product": "BlackTurtleBean",
     "productdetail":
-        " BlackTurtleBean Contains:\n Energy: 114 kilocalories,\n Protein: 7.62g,\n Fat: 0.46g,\n Carbohydrate: 20.39g,\n Fiber: 7.5g,\n Sugars: 0.28g,\n Calcium: 23mg,\n Iron: 1.81mg",
+        " BlackTurtleBean\n Contains:\n Protein: 7.62g,\n Fat: 0.46g,\n Carbohydrate: 20.39g,\n Fiber: 7.5g,\n Sugars: 0.28g,\n Calcium: 23mg,\n Iron: 1.81mg",
     "img": "assets/RetailerGrains/blackTurtleBean.png",
     "p_price": 92.00,
     "p_promotion_price": 50.00
