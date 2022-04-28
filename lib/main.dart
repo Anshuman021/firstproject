@@ -1,6 +1,8 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firstproject/farmer_login_and_SignUp/farmerLogin.dart';
 import 'package:firstproject/farmer_login_and_SignUp/farmerSignUp.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_drawer_body.dart';
@@ -27,11 +29,11 @@ import 'package:flutter/services.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
   await DefaultRetailer.init();
   await DefaultFarmer.init();
 
