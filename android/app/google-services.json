@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "984797627205",
+    "project_id": "farmerstock18",
+    "storage_bucket": "farmerstock18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984797627205:android:c9733e5552f42ac1a9742c",
+        "android_client_info": {
+          "package_name": "com.example.firstproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984797627205-e5jovcc1tnitfdmrch9flvee9v7tvr2k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firstproject",
+            "certificate_hash": "ac845bdbad13ad8ff6f38e7ccc7e9c59ad3eadc8"
+          }
+        },
+        {
+          "client_id": "984797627205-t6chlnnbip14h1l9la9keg6qpb18g3r8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-H99WM9wv0b2cSzfFmwYiTmz8kA5MWTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984797627205-t6chlnnbip14h1l9la9keg6qpb18g3r8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

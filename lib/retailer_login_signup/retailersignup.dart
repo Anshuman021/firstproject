@@ -1,5 +1,7 @@
 //import 'dart:html';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:email_auth/email_auth.dart';
@@ -15,11 +17,14 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
   final TextEditingController _nameController = TextEditingController();
   // TextEditingController _addressController = TextEditingController();
   final TextEditingController _phonenoController = TextEditingController();
+  TextEditingController phoneotpController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   late EmailAuth emailAuth;
+  FirebaseAuth auth = FirebaseAuth.instance;
+  String verificationID = "";
   @override
   void initState() {
     super.initState();
@@ -291,6 +296,10 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                       color: Colors.purpleAccent,
                                       fontSize: 18,
                                     ),
+                                    suffixIcon: TextButton(
+                                      child: const Text("verify mobile No"),
+                                      onPressed: () => verifymobileno(),
+                                    ),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     )),
@@ -310,40 +319,46 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             const SizedBox(
                               height: 30,
                             ),
-                            // TextFormField(
-                            //   controller: _addressController,
-                            //   style: const TextStyle(
-                            //       color: Colors.black, fontSize: 22),
-                            //   decoration: InputDecoration(
-                            //       enabledBorder: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: const BorderSide(
-                            //           color: Colors.black,
-                            //         ),
-                            //       ),
-                            //       focusedBorder: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //         borderSide: const BorderSide(
-                            //           color: Colors.pink,
-                            //         ),
-                            //       ),
-                            //       hintText: "Address",
-                            //       hintStyle: const TextStyle(
-                            //         color: Colors.black,
-                            //         fontSize: 18,
-                            //       ),
-                            //       border: OutlineInputBorder(
-                            //         borderRadius: BorderRadius.circular(10),
-                            //       )),
-                            //   validator: (val) {
-                            //     if (val!.isEmpty) {
-                            //       return "Please Enter The Address";
-                            //     }
-                            //   },
-                            // ),
-                            // const SizedBox(
-                            //   height: 30,
-                            // ),
+                            TextFormField(
+                              controller: phoneotpController,
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 22),
+                              decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.pink,
+                                    ),
+                                  ),
+                                  hintText: "otp for mobile",
+                                  hintStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                  ),
+                                  suffixIcon: TextButton(
+                                    child: const Text("verify otp"),
+                                    onPressed: () => verifymobileOTP(),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                              validator: (val) {
+                                if (val!.isEmpty) {
+                                  return "Please Enter the otp";
+                                }
+                              },
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
                             TextFormField(
                               controller: _passwordController,
                               style: const TextStyle(
@@ -451,5 +466,41 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
         ),
       ),
     );
+  }
+
+  void verifymobileno() async {
+    auth.verifyPhoneNumber(
+      phoneNumber: _phonenoController.text,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await auth.signInWithCredential(credential).then((value) {
+          print("You are logged in successfully");
+        });
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        print(e.message);
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        verificationID = verificationId;
+        setState(() {});
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
+  }
+
+  void verifymobileOTP() async {
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationID, smsCode: phoneotpController.text);
+
+    await auth.signInWithCredential(credential).then((value) {
+      print("You are logged in successfully");
+      Fluttertoast.showToast(
+          msg: "You are logged in successfully",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    });
   }
 }
