@@ -2,6 +2,8 @@
 
 import 'dart:io';
 
+import 'package:firstproject/retailer_login_signup/retailerlogin.dart';
+import 'package:firstproject/retailer_menu_bar/Retailer_drawer_body.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter/services.dart';
@@ -24,14 +26,20 @@ class RetailerLogout extends StatelessWidget {
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(30))),
               onPressed: () {
-                if (Platform.isAndroid) {
-                  //SystemNavigator.pop();
-                  exit(0);
-                }
+                // if (Platform.isAndroid) {
+                //   //SystemNavigator.pop();
+                //   exit(0);
+                // }
                 // else {
                 //   exit(0);
                 // }
                 //Navigator.pushNamed(context, 'retailerlogin');
+
+                Navigator.pushReplacement(
+                  (context),
+                  MaterialPageRoute(
+                      builder: (context) => const RetailerLogin()),
+                );
               },
             ),
             const SizedBox(
@@ -43,7 +51,11 @@ class RetailerLogout extends StatelessWidget {
               label: const Text("No"),
               color: Colors.lightGreen,
               onPressed: () {
-                Navigator.pushNamed(context, 'Retailer_drawer_body');
+                Navigator.pushReplacement(
+                  (context),
+                  MaterialPageRoute(
+                      builder: (context) => const RetailerDrawerBody()),
+                );
               },
             ),
           ],
