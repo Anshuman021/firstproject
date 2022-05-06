@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class RetailerDrawerHeader extends StatefulWidget {
-  const RetailerDrawerHeader({Key? key}) : super(key: key);
+  String? retailername;
+  RetailerDrawerHeader({Key? key, this.retailername}) : super(key: key);
 
   @override
   _RetailerDrawerHeaderState createState() => _RetailerDrawerHeaderState();
@@ -23,9 +24,9 @@ class _RetailerDrawerHeaderState extends State<RetailerDrawerHeader> {
             margin: const EdgeInsets.only(bottom: 10),
             height: 100,
           ),
-          const Text(
-            "Retailer profile",
-            style: TextStyle(color: Colors.black, fontSize: 22),
+          Text(
+            "${widget.retailername} Profile",
+            style: const TextStyle(color: Colors.black, fontSize: 22),
           ),
         ],
       ),

@@ -1,5 +1,8 @@
 //import 'dart:ui';
+import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firstproject/retailer_menu_bar/Retailer_drawer_header.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/retailer_profile.dart';
@@ -16,6 +19,22 @@ class RetailerDrawerBody extends StatefulWidget {
 }
 
 class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
+  User? user = FirebaseAuth.instance.currentUser;
+  RetailerModel loggedInUser = RetailerModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("retailers")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = RetailerModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   var currentPage = DrawerSections.retailerhomepage;
 
   @override
@@ -36,7 +55,7 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amberAccent[700],
-        title: const Text("Retailer Page"),
+        title: Text("Welcome ${loggedInUser.retailerfirstName}"),
       ),
       body: container,
       drawer: Drawer(
@@ -45,7 +64,8 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
           child: Container(
             child: Column(
               children: [
-                const RetailerDrawerHeader(),
+                RetailerDrawerHeader(
+                    retailername: loggedInUser.retailerfirstName),
                 MyDrawerList(),
               ],
             ),
@@ -53,7 +73,7 @@ class _RetailerDrawerBodyState extends State<RetailerDrawerBody> {
         ),
       ),
       bottomNavigationBar: const BottomAppBar(
-        child: Text("Service for Retailer"),
+        child: Text("Services for you"),
         color: Colors.amberAccent,
       ),
     );

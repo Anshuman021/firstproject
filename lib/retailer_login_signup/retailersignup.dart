@@ -1,10 +1,15 @@
 //import 'dart:html';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:email_auth/email_auth.dart';
+
+import '../retailer_menu_bar/Retailer_drawer_body.dart';
 
 class RetailerSignUp extends StatefulWidget {
   const RetailerSignUp({Key? key}) : super(key: key);
@@ -15,12 +20,19 @@ class RetailerSignUp extends StatefulWidget {
 
 class _RetailerSignUpState extends State<RetailerSignUp> {
   final TextEditingController _nameController = TextEditingController();
-  // TextEditingController _addressController = TextEditingController();
   final TextEditingController _phonenoController = TextEditingController();
   TextEditingController phoneotpController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmpasswordController =
+      TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
+
+  // string for displaying the error Message
+  String? errorMessage;
+
   final _formkey = GlobalKey<FormState>();
   late EmailAuth emailAuth;
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -38,6 +50,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
     //EmailAuth emailAuth = EmailAuth(sessionName: "Testing session");
     var res = await emailAuth.sendOtp(
         recipientMail: _emailController.value.text, otpLength: 4);
+    // print(_emailController.value.text);
     if (res) {
       // print("OTP sent");
       showDialog(
@@ -83,6 +96,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
     var res = emailAuth.validateOtp(
         recipientMail: _emailController.value.text,
         userOtp: _otpController.text);
+
     if (res) {
       // print("OTP verified");
       showDialog(
@@ -140,7 +154,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
               padding: const EdgeInsets.only(left: 35, top: 130),
               child: const Text(
                 'Create Your Account Here!',
-                style: TextStyle(color: Colors.black, fontSize: 25),
+                style: TextStyle(color: Colors.black, fontSize: 22),
               ),
             ),
             SingleChildScrollView(
@@ -151,7 +165,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(left: 35, right: 35),
+                      margin: const EdgeInsets.only(left: 20, right: 20),
                       child: Form(
                         key: _formkey,
                         child: Column(
@@ -251,7 +265,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                     fontSize: 18,
                                   ),
                                   suffixIcon: TextButton(
-                                    child: const Text("Verify OTP"),
+                                    child: const Text("verify otp"),
                                     onPressed: () => verifyOTP(),
                                   ),
                                   border: OutlineInputBorder(
@@ -291,13 +305,13 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                         color: Colors.pink,
                                       ),
                                     ),
-                                    hintText: "Enter Phone Number",
+                                    hintText: "Phone Number",
                                     hintStyle: const TextStyle(
                                       color: Colors.purpleAccent,
                                       fontSize: 18,
                                     ),
                                     suffixIcon: TextButton(
-                                      child: const Text("verify mobile No"),
+                                      child: const Text("verify mobile no"),
                                       onPressed: () => verifymobileno(),
                                     ),
                                     border: OutlineInputBorder(
@@ -307,6 +321,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                   if (val!.isEmpty) {
                                     return "Please Enter Your Phone No";
                                   }
+
                                   if (val.length != 10) {
                                     return "Incorrect Phone No";
                                   }
@@ -340,7 +355,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                   ),
                                   hintText: "otp for mobile",
                                   hintStyle: const TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.purpleAccent,
                                     fontSize: 18,
                                   ),
                                   suffixIcon: TextButton(
@@ -406,6 +421,50 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                             const SizedBox(
                               height: 20,
                             ),
+                            TextFormField(
+                              controller: _confirmpasswordController,
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 22),
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                  fillColor: Colors.lime.shade100,
+                                  filled: true,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.pink,
+                                    ),
+                                  ),
+                                  hintText: "confirm password",
+                                  hintStyle: const TextStyle(
+                                    color: Colors.purpleAccent,
+                                    fontSize: 18,
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                              validator: (val) {
+                                if (val!.isEmpty) {
+                                  return "Please Enter the Password";
+                                }
+                                if (val.length < 5) {
+                                  return "Enter Atleast 5 Character";
+                                }
+                                if (_confirmpasswordController.text !=
+                                    _passwordController.text) {
+                                  return "Password don't match";
+                                }
+                              },
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -420,10 +479,13 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                   child: IconButton(
                                     color: Colors.amberAccent,
                                     onPressed: () {
-                                      if (_formkey.currentState!.validate()) {
-                                        Navigator.pushNamed(
-                                            context, 'Retailer_drawer_body');
-                                      }
+                                      signUp(_emailController.text,
+                                          _passwordController.text);
+
+                                      // if (_formkey.currentState!.validate()) {
+                                      //   Navigator.pushNamed(
+                                      //       context, 'Retailer_drawer_body');
+                                      // }
                                     },
                                     icon: const Icon(Icons.arrow_forward),
                                   ),
@@ -470,10 +532,10 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
 
   void verifymobileno() async {
     auth.verifyPhoneNumber(
-      phoneNumber: _phonenoController.text,
+      phoneNumber: "+91" + _phonenoController.text.toString().trim(),
       verificationCompleted: (PhoneAuthCredential credential) async {
         await auth.signInWithCredential(credential).then((value) {
-          print("You are logged in successfully");
+          print("Phone number verified");
         });
       },
       verificationFailed: (FirebaseAuthException e) {
@@ -492,9 +554,9 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
         verificationId: verificationID, smsCode: phoneotpController.text);
 
     await auth.signInWithCredential(credential).then((value) {
-      print("You are logged in successfully");
+      print("Phone no verified");
       Fluttertoast.showToast(
-          msg: "You are logged in successfully",
+          msg: "Phone no verified",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1,
@@ -502,5 +564,74 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
           textColor: Colors.white,
           fontSize: 16.0);
     });
+  }
+
+  void signUp(String email, String password) async {
+    if (_formkey.currentState!.validate()) {
+      try {
+        await _auth
+            .createUserWithEmailAndPassword(email: email, password: password)
+            .then((value) => {postDetailsToFirestore()})
+            .catchError((e) {
+          Fluttertoast.showToast(msg: e!.message);
+        });
+      } on FirebaseAuthException catch (error) {
+        switch (error.code) {
+          case "invalid-email":
+            errorMessage = "Your email address appears to be malformed.";
+            break;
+          case "wrong-password":
+            errorMessage = "Your password is wrong.";
+            break;
+          case "user-not-found":
+            errorMessage = "User with this email doesn't exist.";
+            break;
+          case "user-disabled":
+            errorMessage = "User with this email has been disabled.";
+            break;
+          case "too-many-requests":
+            errorMessage = "Too many requests";
+            break;
+          case "operation-not-allowed":
+            errorMessage = "Signing in with Email and Password is not enabled.";
+            break;
+          default:
+            errorMessage = "An undefined Error happened.";
+        }
+        Fluttertoast.showToast(msg: errorMessage!);
+        print(error.code);
+      }
+    }
+  }
+
+  postDetailsToFirestore() async {
+    // calling our firestore
+    // calling our user model
+    // sedning these values
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? retailerdata = _auth.currentUser;
+
+    RetailerModel retaileruserModel = RetailerModel();
+
+    // writing all the values
+    retaileruserModel.ruid = retailerdata!.uid;
+    retaileruserModel.retailerfirstName = _nameController.text;
+    retaileruserModel.retaileremail = retailerdata.email;
+    retaileruserModel.retailerphoneno = _phonenoController.text;
+    retaileruserModel.retailerpassword = _passwordController.text;
+    retaileruserModel.retailerPhotoURL =
+        "https://cdn0.iconfinder.com/data/icons/messenger/154/avatar-login-human-man-user-sign-label-512.png";
+
+    await firebaseFirestore
+        .collection("retailers")
+        .doc(retailerdata.uid)
+        .set(retaileruserModel.toMap());
+    Fluttertoast.showToast(msg: "Account created successfully :) ");
+
+    Navigator.pushReplacement(
+      (context),
+      MaterialPageRoute(builder: (context) => const RetailerDrawerBody()),
+    );
   }
 }
