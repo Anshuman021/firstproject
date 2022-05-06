@@ -15,7 +15,7 @@ class RetailerHomePage extends StatelessWidget {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'vegetables_list');
+                    Navigator.pushNamed(context, 'vegetablelist');
                   },
                   child: Container(
                     child: const Align(
@@ -43,7 +43,7 @@ class RetailerHomePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'fruits_list');
+                    Navigator.pushNamed(context, 'fruitlist');
                   },
                   child: Container(
                     child: const Align(
@@ -72,7 +72,7 @@ class RetailerHomePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'grain_list');
+                    Navigator.pushNamed(context, 'grainlist');
                   },
                   child: Container(
                     child: const Align(
@@ -100,7 +100,7 @@ class RetailerHomePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'flower_list');
+                    Navigator.pushNamed(context, 'flowerlist');
                   },
                   child: Container(
                     child: const Align(
