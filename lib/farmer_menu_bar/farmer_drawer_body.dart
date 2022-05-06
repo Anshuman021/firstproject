@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firstproject/farmer_login_and_SignUp/farmermodel/farmerusermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_drawer_header.dart';
 import 'package:firstproject/farmer_menu_bar/farmer_menu_list/farmer_profile/page/farmer_profile.dart';
@@ -14,6 +17,22 @@ class FarmerDrawerBody extends StatefulWidget {
 }
 
 class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
+  User? user = FirebaseAuth.instance.currentUser;
+  FarmerModel loggedInUser = FarmerModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("farmers")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = FarmerModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   var currentPage = DrawerSections.homepage;
 
   @override
@@ -34,7 +53,7 @@ class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent[700],
-        title: const Text("Farmer Page"),
+        title: Text("Welcome ${loggedInUser.farmerfirstName}"),
       ),
       body: container,
       drawer: Drawer(
@@ -43,7 +62,7 @@ class _FarmerDrawerBodyState extends State<FarmerDrawerBody> {
           child: Container(
             child: Column(
               children: [
-                const FarmerDrawerHeader(),
+                FarmerDrawerHeader(farmername: loggedInUser.farmerfirstName),
                 MyDrawerList(),
               ],
             ),

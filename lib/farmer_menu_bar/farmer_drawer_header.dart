@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FarmerDrawerHeader extends StatefulWidget {
-  const FarmerDrawerHeader({Key? key}) : super(key: key);
+  String? farmername;
+  FarmerDrawerHeader({Key? key, this.farmername}) : super(key: key);
 
   @override
   _FarmerDrawerHeaderState createState() => _FarmerDrawerHeaderState();
@@ -22,9 +23,9 @@ class _FarmerDrawerHeaderState extends State<FarmerDrawerHeader> {
             margin: const EdgeInsets.only(bottom: 10),
             height: 100,
           ),
-          const Text(
-            "Farmer Profile",
-            style: TextStyle(color: Colors.black, fontSize: 22),
+          Text(
+            "${widget.farmername} Profile",
+            style: const TextStyle(color: Colors.black, fontSize: 22),
           ),
         ],
       ),

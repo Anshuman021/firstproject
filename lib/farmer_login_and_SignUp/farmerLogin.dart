@@ -1,8 +1,11 @@
 // ignore: file_names
 
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firstproject/farmer_menu_bar/farmer_drawer_body.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:email_auth/email_auth.dart';
+// import 'package:email_auth/email_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // import 'package:flutter/rendering.dart';
 // import 'package:flutter/services.dart';
@@ -17,108 +20,112 @@ class FarmerLogin extends StatefulWidget {
 class _FarmerLoginState extends State<FarmerLogin> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _otpController = TextEditingController();
+  // final TextEditingController _otpController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
-  late EmailAuth emailAuth;
+  // late EmailAuth emailAuth;
+
+  // firebase
+  final _auth = FirebaseAuth.instance;
+  String? errorMessage;
   @override
   void initState() {
     super.initState();
 
-    emailAuth = EmailAuth(
-      sessionName: "OTP for Retailer",
-    );
+    // emailAuth = EmailAuth(
+    //   sessionName: "OTP for Retailer",
+    // );
   }
 
-  void sendOtp() async {
-    //EmailAuth emailAuth = EmailAuth(sessionName: "Testing session");
-    var res = await emailAuth.sendOtp(
-        recipientMail: _emailController.value.text, otpLength: 4);
-    if (res) {
-      // print("OTP sent");
-      showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (BuildContext context) {
-            return CupertinoAlertDialog(
-              title: const Text("OTP Sent Successfully !"),
-              actions: [
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text("OK"),
-                ),
-              ],
-            );
-          });
-    } else {
-      // print("otp not sent");
-      showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (BuildContext context) {
-            return CupertinoAlertDialog(
-              title: const Text("OTP Not sent"),
-              content: const Text(
-                  "Error due to the Invalid Email please re-enter email"),
-              actions: [
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text("OK"),
-                ),
-              ],
-            );
-          });
-    }
-  }
+  // void sendOtp() async {
+  //   //EmailAuth emailAuth = EmailAuth(sessionName: "Testing session");
+  //   var res = await emailAuth.sendOtp(
+  //       recipientMail: _emailController.value.text, otpLength: 4);
+  //   if (res) {
+  //     // print("OTP sent");
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP Sent Successfully !"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   } else {
+  //     // print("otp not sent");
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP Not sent"),
+  //             content: const Text(
+  //                 "Error due to the Invalid Email please re-enter email"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   }
+  // }
 
-  void verifyOTP() {
-    var res = emailAuth.validateOtp(
-        recipientMail: _emailController.value.text,
-        userOtp: _otpController.text);
-    if (res) {
-      // print("OTP verified");
-      showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (BuildContext context) {
-            return CupertinoAlertDialog(
-              title: const Text("OTP Verified"),
-              actions: [
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text("OK"),
-                ),
-              ],
-            );
-          });
-    } else {
-      // print("NOT valid otp");
+  // void verifyOTP() {
+  //   var res = emailAuth.validateOtp(
+  //       recipientMail: _emailController.value.text,
+  //       userOtp: _otpController.text);
+  //   if (res) {
+  //     // print("OTP verified");
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP Verified"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   } else {
+  //     // print("NOT valid otp");
 
-      showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (BuildContext context) {
-            return CupertinoAlertDialog(
-              title: const Text("OTP"),
-              content: const Text("Incorrect OTP"),
-              actions: [
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text("OK"),
-                ),
-              ],
-            );
-          });
-    }
-  }
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: context,
+  //         builder: (BuildContext context) {
+  //           return CupertinoAlertDialog(
+  //             title: const Text("OTP"),
+  //             content: const Text("Incorrect OTP"),
+  //             actions: [
+  //               CupertinoDialogAction(
+  //                 onPressed: () {
+  //                   Navigator.pop(context);
+  //                 },
+  //                 child: const Text("OK"),
+  //               ),
+  //             ],
+  //           );
+  //         });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -166,46 +173,46 @@ class _FarmerLoginState extends State<FarmerLogin> {
                           fillColor: Colors.grey.shade100,
                           filled: true,
                           hintText: "Email",
-                          suffixIcon: TextButton(
-                            child: const Text("send OTP"),
-                            onPressed: () => sendOtp(),
-                          ),
+                          // suffixIcon: TextButton(
+                          //   child: const Text("send OTP"),
+                          //   onPressed: () => sendOtp(),
+                          // ),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                      controller: _otpController,
-                      keyboardType: TextInputType.number,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          fillColor: Colors.grey.shade100,
-                          filled: true,
-                          hintText: "Enter OTP",
-                          suffixIcon: TextButton(
-                            child: const Text("Verify OTP"),
-                            onPressed: () => verifyOTP(),
-                          ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                      validator: (val) {
-                        if (val!.isEmpty) {
-                          return "Please Enter The OTP";
-                        }
-                        if (val.length < 6) {
-                          return "Enter 6 Digit OTP and verify";
-                        }
+                    // TextFormField(
+                    //   controller: _otpController,
+                    //   keyboardType: TextInputType.number,
+                    //   obscureText: true,
+                    //   decoration: InputDecoration(
+                    //       fillColor: Colors.grey.shade100,
+                    //       filled: true,
+                    //       hintText: "Enter OTP",
+                    //       suffixIcon: TextButton(
+                    //         child: const Text("Verify OTP"),
+                    //         onPressed: () => verifyOTP(),
+                    //       ),
+                    //       border: OutlineInputBorder(
+                    //           borderRadius: BorderRadius.circular(10))),
+                    //   validator: (val) {
+                    //     if (val!.isEmpty) {
+                    //       return "Please Enter The OTP";
+                    //     }
+                    //     if (val.length < 6) {
+                    //       return "Enter 6 Digit OTP and verify";
+                    //     }
 
-                        if (val.length > 6) {
-                          return "Enter 6 Digit OTP and verify";
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    //     if (val.length > 6) {
+                    //       return "Enter 6 Digit OTP and verify";
+                    //     }
+                    //   },
+                    // ),
+                    // const SizedBox(
+                    //   height: 20,
+                    // ),
                     TextFormField(
                       controller: _passwordController,
                       obscureText: true,
@@ -248,10 +255,12 @@ class _FarmerLoginState extends State<FarmerLogin> {
                           child: IconButton(
                             color: Colors.amber,
                             onPressed: () {
-                              if (_formkey.currentState!.validate()) {
-                                Navigator.pushNamed(
-                                    context, 'farmer_drawer_body');
-                              }
+                              // if (_formkey.currentState!.validate()) {
+                              //   Navigator.pushNamed(
+                              //       context, 'farmer_drawer_body');
+                              // }
+                              signIn(_emailController.text,
+                                  _passwordController.text);
                             },
                             icon: const Icon(Icons.arrow_forward),
                           ),
@@ -266,7 +275,7 @@ class _FarmerLoginState extends State<FarmerLogin> {
                       children: [
                         TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'register');
+                              Navigator.pushNamed(context, 'farmerSignUp');
                             },
                             child: const Text('SIGN UP',
                                 style: TextStyle(
@@ -284,5 +293,46 @@ class _FarmerLoginState extends State<FarmerLogin> {
         ),
       ),
     );
+  }
+
+  // Login Function
+  void signIn(String email, String password) async {
+    if (_formkey.currentState!.validate()) {
+      try {
+        await _auth
+            .signInWithEmailAndPassword(email: email, password: password)
+            .then((uid) => {
+                  Fluttertoast.showToast(msg: "Login Successful"),
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const FarmerDrawerBody())),
+                });
+      } on FirebaseAuthException catch (error) {
+        switch (error.code) {
+          case "invalid-email":
+            errorMessage = "Your email address appears to be malformed.";
+
+            break;
+          case "wrong-password":
+            errorMessage = "Your password is wrong.";
+            break;
+          case "user-not-found":
+            errorMessage = "User with this email doesn't exist.";
+            break;
+          case "user-disabled":
+            errorMessage = "User with this email has been disabled.";
+            break;
+          case "too-many-requests":
+            errorMessage = "Too many requests";
+            break;
+          case "operation-not-allowed":
+            errorMessage = "Signing in with Email and Password is not enabled.";
+            break;
+          default:
+            errorMessage = "An undefined Error happened.";
+        }
+        Fluttertoast.showToast(msg: errorMessage!);
+        print(error.code);
+      }
+    }
   }
 }
