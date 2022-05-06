@@ -1,14 +1,18 @@
 import 'dart:io';
 
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
+import 'package:firstproject/retailer_login_signup/retailerlogin.dart';
+import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/retailer_datatype.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/default_retailer.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/r_appbar_widget.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/r_button_widget.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/r_profile_widget.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/r_textfield_widget.dart';
 import 'package:path/path.dart';
 
@@ -20,13 +24,88 @@ class RetailerEditProfilePage extends StatefulWidget {
 }
 
 class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
-  late RetailerUser user;
+  File? _image;
+  final imagePicker = ImagePicker();
+  String? downloadurl;
+  final _formkey = GlobalKey<FormState>();
+
+  User? user = FirebaseAuth.instance.currentUser;
+  RetailerModel loggedInUser = RetailerModel();
 
   @override
   void initState() {
     super.initState();
+    FirebaseFirestore.instance
+        .collection("retailers")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = RetailerModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
 
-    user = DefaultRetailer.getUser();
+  Future getImage() async {
+    final image = await imagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      if (image != null) {
+        _image = File(image.path);
+        print('Image Path $_image');
+        Fluttertoast.showToast(
+            msg: "Update the Profile!", textColor: Colors.redAccent);
+        uploadPic();
+      } else {
+        Fluttertoast.showToast(
+            msg: "No file selected! ", textColor: Colors.redAccent);
+      }
+    });
+  }
+
+  Future uploadPic() async {
+    String fileName = basename(_image!.path);
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    Fluttertoast.showToast(
+        msg: "Photo Uploading ... ", textColor: Colors.blueAccent);
+    Reference ref = FirebaseStorage.instance
+        .ref()
+        .child("RetailerProfileCollection/${fileName}");
+    await ref.putFile(_image!);
+    downloadurl = await ref.getDownloadURL();
+    print(downloadurl);
+    // await firebaseFirestore.collection("FlowerList").doc(flowerName).set({
+    //   "flowerName": flowerName,
+    //   "flowerDescription": flowerDescription,
+    //   "flowerPrice": flowerPrice,
+    //   "flowerImgUrl": downloadurl
+    // });
+
+    loggedInUser.retailerPhotoURL = downloadurl;
+    await firebaseFirestore.collection("retailers").doc(loggedInUser.ruid).set({
+      "retaileremail": loggedInUser.retaileremail,
+      "retailerfirstName": loggedInUser.retailerfirstName,
+      "retailerphoneno": loggedInUser.retailerphoneno,
+      "retailerpassword": loggedInUser.retailerpassword,
+      "ruid": loggedInUser.ruid,
+      "retailerPhotoURL": loggedInUser.retailerPhotoURL
+    });
+
+    // await firebaseFirestore
+    //     .collection("farmers")
+    //     .doc(loggedInUser.fuid)
+    //     .collection("FlowerCreatedByYou")
+    //     .doc(flowerName)
+    //     .set({
+    //   "flowerName": flowerName,
+    //   "flowerDescription": flowerDescription,
+    //   "flowerPrice": flowerPrice,
+    //   "flowerImgUrl": downloadurl
+    // });
+
+    setState(() {
+      print("Profile Picture uploaded");
+      Fluttertoast.showToast(
+          msg: "Photo Uploaded !", textColor: Colors.greenAccent);
+    });
   }
 
   @override
@@ -38,44 +117,98 @@ class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
               padding: const EdgeInsets.symmetric(horizontal: 32),
               physics: const BouncingScrollPhysics(),
               children: [
-                ProfileWidget(
-                  imagePath: user.imagePath,
-                  isEdit: true,
-                  onClicked: () async {
-                    final image = await ImagePicker()
-                        // ignore: deprecated_member_use
-                        .getImage(source: ImageSource.gallery);
-
-                    if (image == null) return;
-
-                    final directory = await getApplicationDocumentsDirectory();
-                    final name = basename(image.path);
-                    final imageFile = File('${directory.path}/$name');
-                    final newImage =
-                        await File(image.path).copy(imageFile.path);
-
-                    setState(() => user = user.copy(imagePath: newImage.path));
-                  },
+                Container(
+                  height: 100.0,
+                  width: 98.0,
+                  child: CircleAvatar(
+                    radius: 100,
+                    backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                    child: ClipOval(
+                      child: SizedBox(
+                        width: 110.0,
+                        height: 110.0,
+                        child: (_image == null)
+                            ? Image.network(
+                                "${loggedInUser.retailerPhotoURL}",
+                                fit: BoxFit.cover,
+                              )
+                            : Image.file(_image!, fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.photo,
+                      size: 30.0,
+                    ),
+                    onPressed: () {
+                      getImage();
+                    },
+                  ),
                 ),
                 const SizedBox(height: 24),
+
+                // Container(
+                //   child: Form(
+                //     key: _formkey,
+                //     child: Column(
+
+                //       children: <Widget>[
+
+                //       ],
+
+                //     )
+
+                //   ),
+                // ),
                 TextFieldWidget(
                   label: 'Full Name',
-                  text: user.name,
-                  onChanged: (name) => user = user.copy(name: name),
+                  text: "${loggedInUser.retailerfirstName}",
+                  onChanged: (String name) {
+                    if (name != loggedInUser.retailerfirstName) {
+                      loggedInUser.retailerfirstName = name;
+                    } else {
+                      loggedInUser.retailerfirstName =
+                          loggedInUser.retailerfirstName;
+                    }
+                  },
                 ),
+
                 const SizedBox(height: 24),
                 TextFieldWidget(
                   label: 'Email',
-                  text: user.email,
-                  onChanged: (email) => user = user.copy(email: email),
+                  text: "${loggedInUser.retaileremail}",
+                  onChanged: (String email) {
+                    if (email != loggedInUser.retaileremail) {
+                      loggedInUser.retaileremail = email;
+                    } else {
+                      loggedInUser.retaileremail = loggedInUser.retaileremail;
+                    }
+                  },
                 ),
+                // TextButton(
+                //     onPressed: () {
+                //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+                //           builder: (context) =>
+                //               const EmailChangeForRetailer()));
+                //     },
+                //     child: const Text("Verify Email")),
                 const SizedBox(height: 24),
                 TextFieldWidget(
                   label: 'Mobile Number',
-                  text: user.mobilenumber,
+                  text: "${loggedInUser.retailerphoneno}",
                   maxLines: 1,
-                  onChanged: (mobilenumber) =>
-                      user = user.copy(mobilenumber: mobilenumber),
+                  onChanged: (String phoneNo) {
+                    if (phoneNo != loggedInUser.retailerphoneno) {
+                      loggedInUser.retailerphoneno = phoneNo;
+                    } else {
+                      loggedInUser.retailerphoneno =
+                          loggedInUser.retailerphoneno;
+                    }
+                  },
                 ),
                 const SizedBox(height: 24),
                 // TextFieldWidget(
@@ -88,8 +221,13 @@ class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
                 ButtonWidget(
                   text: 'Update Profile',
                   onClicked: () {
-                    DefaultRetailer.setUser(user);
-                    Navigator.of(context).pop();
+                    UpdateProfile()
+                        .whenComplete(() => Navigator.pushReplacement(
+                              (context),
+                              MaterialPageRoute(
+                                  builder: (context) => const RetailerLogin()),
+                            ));
+                    // Navigator.of(context).pop();
                   },
                 ),
               ],
@@ -97,4 +235,18 @@ class _RetailerEditProfilePageState extends State<RetailerEditProfilePage> {
           ),
         ),
       );
+
+  Future UpdateProfile() async {
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    await firebaseFirestore.collection("retailers").doc(loggedInUser.ruid).set({
+      "retaileremail": loggedInUser.retaileremail,
+      "retailerfirstName": loggedInUser.retailerfirstName,
+      "retailerphoneno": loggedInUser.retailerphoneno,
+      "retailerpassword": loggedInUser.retailerpassword,
+      "ruid": loggedInUser.ruid,
+      "retailerPhotoURL": loggedInUser.retailerPhotoURL
+    });
+    Fluttertoast.showToast(
+        msg: "Please Login Again :) ", textColor: Colors.greenAccent);
+  }
 }

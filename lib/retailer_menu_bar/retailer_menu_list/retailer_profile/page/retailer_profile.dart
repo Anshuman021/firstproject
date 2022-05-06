@@ -1,7 +1,8 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 import 'package:flutter/material.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/model/retailer_datatype.dart';
-import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/utils/default_retailer.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/page/retailer_editprofile.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/r_appbar_widget.dart';
 import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailer_profile/widget/r_button_widget.dart';
@@ -15,10 +16,24 @@ class RetailerProfilePage extends StatefulWidget {
 }
 
 class _RetailerProfilePageState extends State<RetailerProfilePage> {
+  User? user = FirebaseAuth.instance.currentUser;
+  RetailerModel loggedInUser = RetailerModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("retailers")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = RetailerModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final user = DefaultRetailer.getUser();
-
     return ThemeSwitchingArea(
       child: Builder(
         builder: (context) => Scaffold(
@@ -27,23 +42,17 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
             physics: const BouncingScrollPhysics(),
             children: [
               ProfileWidget(
-                imagePath: user.imagePath,
-                onClicked: () async {
-                  await Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => const RetailerEditProfilePage()),
-                  );
-                  setState(() {});
-                },
+                imagePath: "${loggedInUser.retailerPhotoURL}",
+                onClicked: () {},
               ),
               const SizedBox(height: 24),
-              buildName(user),
+              buildName(),
               const SizedBox(height: 24),
               Center(child: buildUpgradeButton()),
               const SizedBox(height: 24),
               //NumbersWidget(),
               const SizedBox(height: 48),
-              buildAbout(user),
+              buildAbout(),
             ],
           ),
         ),
@@ -51,10 +60,10 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
     );
   }
 
-  Widget buildName(RetailerUser user) => Column(
+  Widget buildName() => Column(
         children: [
           Text(
-            user.name,
+            "${loggedInUser.retailerfirstName}",
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           const SizedBox(height: 4),
@@ -66,11 +75,17 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
       );
 
   Widget buildUpgradeButton() => ButtonWidget(
-        text: 'Click Above Image to Update profile',
-        onClicked: () {},
+        text: 'Click here to Update profile',
+        onClicked: () async {
+          await Navigator.of(context).push(
+            MaterialPageRoute(
+                builder: (context) => const RetailerEditProfilePage()),
+          );
+          setState(() {});
+        },
       );
 
-  Widget buildAbout(RetailerUser user) => Container(
+  Widget buildAbout() => Container(
         padding: const EdgeInsets.symmetric(horizontal: 48),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +96,7 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
             ),
             const SizedBox(height: 6),
             Text(
-              user.mobilenumber,
+              "${loggedInUser.retailerphoneno}",
               style: const TextStyle(
                   fontSize: 18, height: 1.4, color: Colors.deepPurple),
             ),
@@ -92,7 +107,7 @@ class _RetailerProfilePageState extends State<RetailerProfilePage> {
             ),
             const SizedBox(height: 14),
             Text(
-              user.email,
+              "${loggedInUser.retaileremail}",
               style: const TextStyle(
                   fontSize: 18, color: Colors.deepPurple, height: 1.4),
             ),
