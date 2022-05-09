@@ -8,6 +8,7 @@ import 'package:firstproject/retailer_items/Flowers/flowerlist.dart';
 import 'package:firstproject/retailer_items/Fruits/fruitlist.dart';
 import 'package:firstproject/retailer_items/Grains/grainlist.dart';
 import 'package:firstproject/retailer_items/Vegetables/vegetablelist.dart';
+import 'package:firstproject/retailer_menu_bar/retailer_menu_list/retailercart.dart';
 import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
