@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:like_button/like_button.dart';
 
 class GrainList extends StatefulWidget {
   const GrainList({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class GrainList extends StatefulWidget {
 }
 
 class _GrainListState extends State<GrainList> {
+  String GrainQuantity = "1";
   User? user = FirebaseAuth.instance.currentUser;
   RetailerModel loggedInUser = RetailerModel();
 
@@ -30,17 +32,20 @@ class _GrainListState extends State<GrainList> {
 
   //GrainCart for particular user
 
-  Future grainAddToCart(
-      String grainName, String grainPrice, String grainImageUrl) async {
+  Future grainAddToCart(String grainName, String grainPrice,
+      String grainImageUrl, String grainQuantity) async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     await firebaseFirestore
         .collection("retailers")
         .doc(loggedInUser.ruid)
         .collection("YourCart")
-        .add({
+        .doc(grainName)
+        .set({
       "ProductName": grainName,
       "ProductPrice": grainPrice,
-      "ProductImageUrl": grainImageUrl
+      "ProductImageUrl": grainImageUrl,
+      "ProductQuantity": grainQuantity,
+      "UpdatedProductPrice": grainPrice
     }).whenComplete(() => Fluttertoast.showToast(
             msg: "Item Added To Cart :) ", textColor: Colors.greenAccent));
   }
@@ -161,9 +166,12 @@ class _GrainListState extends State<GrainList> {
                                               : "")
                                           : "",
                                       style: const TextStyle(
-                                          fontSize: 18, color: Colors.green),
+                                          fontSize: 16, color: Colors.green),
                                     ),
                                     const Spacer(),
+                                    const LikeButton(
+                                      size: 28,
+                                    ),
                                     Container(
                                       child: IconButton(
                                         icon: const Icon(
@@ -187,7 +195,8 @@ class _GrainListState extends State<GrainList> {
                                           grainAddToCart(
                                               documentSnapshot["grainName"],
                                               documentSnapshot["grainPrice"],
-                                              documentSnapshot["grainImgUrl"]);
+                                              documentSnapshot["grainImgUrl"],
+                                              GrainQuantity);
                                         },
                                       ),
                                     ),

@@ -13,7 +13,7 @@ class FlowerList extends StatefulWidget {
 }
 
 class _FlowerListState extends State<FlowerList> {
-  Color _favIconColor = Colors.grey;
+  String FlowerQuantity = "1";
   User? user = FirebaseAuth.instance.currentUser;
   RetailerModel loggedInUser = RetailerModel();
 
@@ -32,17 +32,20 @@ class _FlowerListState extends State<FlowerList> {
 
   //FlowerCart for particular user
 
-  Future flowerAddToCart(
-      String flowerName, String flowerPrice, String flowerImageUrl) async {
+  Future flowerAddToCart(String flowerName, String flowerPrice,
+      String flowerImageUrl, String flowerQuantity) async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     await firebaseFirestore
         .collection("retailers")
         .doc(loggedInUser.ruid)
         .collection("YourCart")
-        .add({
+        .doc(flowerName)
+        .set({
       "ProductName": flowerName,
       "ProductPrice": flowerPrice,
-      "ProductImageUrl": flowerImageUrl
+      "ProductImageUrl": flowerImageUrl,
+      "ProductQuantity": flowerQuantity,
+      "UpdatedProductPrice": flowerPrice
     }).whenComplete(() => Fluttertoast.showToast(
             msg: "Item Added To Cart :) ", textColor: Colors.greenAccent));
   }
@@ -179,37 +182,12 @@ class _FlowerListState extends State<FlowerList> {
                                               : "")
                                           : "",
                                       style: const TextStyle(
-                                          fontSize: 18, color: Colors.green),
+                                          fontSize: 16, color: Colors.green),
                                     ),
                                     const Spacer(),
-                                    // Container(
-                                    //   child: IconButton(
-                                    //       icon: Icon(Icons.favorite),
-                                    //       color: _favIconColor,
-                                    //       onPressed: () {
-                                    //         setState(() {
-                                    //           if (_favIconColor == Colors.grey) {
-                                    //           _favIconColor = Colors.red;
-                                    //         } else {
-                                    //           _favIconColor = Colors.grey;
-                                    //         }
-                                    //         });
-                                    //       }),
-                                    // ),
-
-                                    LikeButton(
-                                      size: 32,
+                                    const LikeButton(
+                                      size: 28,
                                     ),
-                                    //   child: IconButton(
-
-                                    //     icon: const Icon(Icons.favorite),
-                                    //     iconSize: 32,
-                                    //     color: const Color.fromARGB(
-                                    //         255, 73, 60, 23),
-                                    //     onPressed: () {},
-                                    //   ),
-                                    // ),
-
                                     Container(
                                       child: IconButton(
                                         icon: const Icon(
@@ -234,7 +212,8 @@ class _FlowerListState extends State<FlowerList> {
                                           flowerAddToCart(
                                               documentSnapshot["flowerName"],
                                               documentSnapshot["flowerPrice"],
-                                              documentSnapshot["flowerImgUrl"]);
+                                              documentSnapshot["flowerImgUrl"],
+                                              FlowerQuantity);
                                         },
                                       ),
                                     ),

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:like_button/like_button.dart';
 
 class VegetableList extends StatefulWidget {
   VegetableList({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class VegetableList extends StatefulWidget {
 }
 
 class _VegetableListState extends State<VegetableList> {
+  String VegetableQuantity = "1";
   User? user = FirebaseAuth.instance.currentUser;
   RetailerModel loggedInUser = RetailerModel();
 
@@ -31,16 +33,19 @@ class _VegetableListState extends State<VegetableList> {
   //VegCart for particular user
 
   Future vegAddToCart(String vegetableName, String vegetablePrice,
-      String vegetableImageUrl) async {
+      String vegetableImageUrl, String vegetableQuantity) async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     await firebaseFirestore
         .collection("retailers")
         .doc(loggedInUser.ruid)
         .collection("YourCart")
-        .add({
+        .doc(vegetableName)
+        .set({
       "ProductName": vegetableName,
       "ProductPrice": vegetablePrice,
-      "ProductImageUrl": vegetableImageUrl
+      "ProductImageUrl": vegetableImageUrl,
+      "ProductQuantity": vegetableQuantity,
+      "UpdatedProductPrice": vegetablePrice
     }).whenComplete(() => Fluttertoast.showToast(
             msg: "Item Added To Cart :) ", textColor: Colors.greenAccent));
   }
@@ -161,9 +166,12 @@ class _VegetableListState extends State<VegetableList> {
                                               : "")
                                           : "",
                                       style: const TextStyle(
-                                          fontSize: 18, color: Colors.green),
+                                          fontSize: 16, color: Colors.green),
                                     ),
                                     const Spacer(),
+                                    const LikeButton(
+                                      size: 28,
+                                    ),
                                     Container(
                                       child: IconButton(
                                         icon: const Icon(
@@ -187,7 +195,8 @@ class _VegetableListState extends State<VegetableList> {
                                           vegAddToCart(
                                               documentSnapshot["vegName"],
                                               documentSnapshot["vegPrice"],
-                                              documentSnapshot["vegImgUrl"]);
+                                              documentSnapshot["vegImgUrl"],
+                                              VegetableQuantity);
                                         },
                                       ),
                                     ),

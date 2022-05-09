@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firstproject/retailer_login_signup/retailermodel/retailerusermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:like_button/like_button.dart';
 
 class FruitList extends StatefulWidget {
   const FruitList({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class FruitList extends StatefulWidget {
 }
 
 class _FruitListState extends State<FruitList> {
+  String FruitQuantity = "1";
   User? user = FirebaseAuth.instance.currentUser;
   RetailerModel loggedInUser = RetailerModel();
 
@@ -30,17 +32,20 @@ class _FruitListState extends State<FruitList> {
 
   //FruitCart for particular user
 
-  Future fruitAddToCart(
-      String fruitName, String fruitPrice, String fruitImageUrl) async {
+  Future fruitAddToCart(String fruitName, String fruitPrice,
+      String fruitImageUrl, String fruitQuantity) async {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     await firebaseFirestore
         .collection("retailers")
         .doc(loggedInUser.ruid)
         .collection("YourCart")
-        .add({
+        .doc(fruitName)
+        .set({
       "ProductName": fruitName,
       "ProductPrice": fruitPrice,
-      "ProductImageUrl": fruitImageUrl
+      "ProductImageUrl": fruitImageUrl,
+      "ProductQuantity": fruitQuantity,
+      "UpdatedProductPrice": fruitPrice
     }).whenComplete(() => Fluttertoast.showToast(
             msg: "Item Added To Cart :) ", textColor: Colors.greenAccent));
   }
@@ -65,11 +70,11 @@ class _FruitListState extends State<FruitList> {
                   return Dismissible(
                       key: Key(index.toString()),
                       child: Card(
-                        color: Color.fromARGB(255, 224, 230, 191),
+                        color: const Color.fromARGB(255, 224, 230, 191),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         elevation: 20,
-                        shadowColor: Color.fromARGB(255, 123, 132, 51),
+                        shadowColor: const Color.fromARGB(255, 123, 132, 51),
                         margin:
                             const EdgeInsets.fromLTRB(14.0, 19.0, 14.0, 12.0),
                         child: Padding(
@@ -161,9 +166,12 @@ class _FruitListState extends State<FruitList> {
                                               : "")
                                           : "",
                                       style: const TextStyle(
-                                          fontSize: 18, color: Colors.green),
+                                          fontSize: 16, color: Colors.green),
                                     ),
                                     const Spacer(),
+                                    const LikeButton(
+                                      size: 28,
+                                    ),
                                     Container(
                                       child: IconButton(
                                         icon: const Icon(
@@ -187,7 +195,8 @@ class _FruitListState extends State<FruitList> {
                                           fruitAddToCart(
                                               documentSnapshot["fruitName"],
                                               documentSnapshot["fruitPrice"],
-                                              documentSnapshot["fruitImgUrl"]);
+                                              documentSnapshot["fruitImgUrl"],
+                                              FruitQuantity);
                                         },
                                       ),
                                     ),
