@@ -150,10 +150,10 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
         body: Stack(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 35, top: 130),
+              padding: const EdgeInsets.only(left: 40, top: 120),
               child: const Text(
                 'Create Your Account Here!',
-                style: TextStyle(color: Colors.black, fontSize: 25),
+                style: TextStyle(color: Colors.black, fontSize: 20),
               ),
             ),
             SingleChildScrollView(
@@ -164,7 +164,7 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(left: 35, right: 35),
+                      margin: const EdgeInsets.only(left: 30, right: 30),
                       child: Form(
                         key: _formkey,
                         child: Column(
@@ -305,7 +305,7 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                                     hintStyle: const TextStyle(
                                         color: Colors.black, fontSize: 20),
                                     suffixIcon: TextButton(
-                                      child: const Text("verify mobile no"),
+                                      child: const Text("verify"),
                                       onPressed: () => verifymobileno(),
                                     ),
                                     border: OutlineInputBorder(
@@ -346,9 +346,9 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                                       color: Colors.pink,
                                     ),
                                   ),
-                                  hintText: "otp for mobile",
+                                  hintText: "Enter OTP",
                                   hintStyle: const TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.black,
                                     fontSize: 18,
                                   ),
                                   suffixIcon: TextButton(

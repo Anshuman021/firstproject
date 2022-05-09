@@ -443,7 +443,7 @@ class _RetailerSignUpState extends State<RetailerSignUp> {
                                   ),
                                   hintText: "confirm password",
                                   hintStyle: const TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.black,
                                     fontSize: 18,
                                   ),
                                   border: OutlineInputBorder(
