@@ -38,6 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   line_icons:
 
+
+  #animated_text
+  animated_text_kit: ^4.2.1
+
   #Email Authentication
   email_auth: ^1.0.0
 
